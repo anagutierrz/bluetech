@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo | Bluetech</title>
+    <title>Laptops | Bluetech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,7 +50,7 @@
 
         async function fetchLaptops() {
             try {
-                // Configuración necesaria para evitar el error 'Failed to fetch' en Vercel
+                // SOLUCIÓN TÉCNICA: Se agrega redirect: 'follow' para evitar el error en producción
                 const response = await fetch(GAS_WEB_APP_URL, { 
                     method: 'GET', 
                     mode: 'cors', 
