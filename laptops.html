@@ -3,25 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo | Bluetech</title>
+    
+    <title>Catálogo de Laptops | Bluetech RD</title>
+    <meta name="description" content="Encuentra las mejores laptops y hardware pro en Bluetech República Dominicana. Calidad garantizada y entrega rápida.">
+    <meta property="og:title" content="Catálogo de Laptops | Bluetech">
+    <meta property="og:description" content="Equipa tu victoria con lo último en tecnología. Catálogo actualizado en tiempo real.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=1000">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script>
-        tailwind.config = { theme: { extend: { colors: { 'bt-deep': '#0A0F1D', 'bt-primary': '#2563EB', 'bt-card': '#161E31', 'bt-border': 'rgba(255, 255, 255, 0.08)' } } } }
+        tailwind.config = {
+            theme: { 
+                extend: { 
+                    colors: { 
+                        'bt-deep': '#0A0F1D', 
+                        'bt-primary': '#2563EB', 
+                        'bt-card': '#161E31', 
+                        'bt-border': 'rgba(255, 255, 255, 0.08)',
+                        'whatsapp': '#25D366'
+                    } 
+                } 
+            }
+        }
     </script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; text-align: left; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .product-card { transition: all 0.4s ease; text-align: left; }
-        .product-card:hover { transform: translateY(-8px); border-color: #2563EB; }
+        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); text-align: left; }
+        .product-card:hover { transform: translateY(-10px); border-color: #2563EB; box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 100; transition: all 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
     </style>
 </head>
 <body class="antialiased">
+
     <nav class="fixed w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center text-left">
-            <a href="index.html" class="text-2xl font-black text-bt-primary uppercase">BlueTech</a>
+            <a href="index.html" class="text-2xl font-black text-bt-primary uppercase tracking-tighter">Blue<span class="text-white">Tech</span></a>
             <div class="flex gap-6 text-sm font-semibold">
                 <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
                 <a href="laptops.html" class="text-bt-primary">Laptops</a>
@@ -30,34 +54,63 @@
     </nav>
 
     <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
-        <div class="mb-12 relative max-w-2xl mx-auto lg:mx-0">
-            <input type="text" id="laptop-search" placeholder="Buscar modelo, marca o procesador..." 
-                   class="w-full bg-bt-card border border-bt-border rounded-2xl py-5 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm">
-            <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-xl">
+                <h1 class="text-4xl font-extrabold mb-4">Catálogo de <span class="text-bt-primary italic">Laptops</span></h1>
+                <div class="relative">
+                    <input type="text" id="laptop-search" placeholder="Busca tu próxima laptop..." 
+                           class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm">
+                    <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                </div>
+            </div>
+            <div id="results-count" class="text-slate-500 text-xs font-bold uppercase tracking-widest pb-4">Cargando inventario...</div>
         </div>
 
         <div id="laptop-loader" class="text-center py-20">
-            <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-5xl"></i>
-            <p class="mt-6 text-slate-500 font-bold uppercase tracking-widest text-xs">Sincronizando inventario...</p>
+            <div class="inline-block relative">
+                <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-5xl"></i>
+                <i class="fa-solid fa-laptop absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-sm text-white"></i>
+            </div>
+            <p class="mt-6 text-slate-500 font-bold uppercase tracking-widest text-[10px]">Sincronizando con Aura Sales OS...</p>
         </div>
         
-        <div id="laptop-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 hidden"></div>
+        <div id="laptop-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 hidden"></div>
     </main>
 
+    <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech,%20quiero%20más%20información." target="_blank" class="whatsapp-float bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-white text-3xl">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <footer class="border-t border-white/5 py-10 mt-20">
+        <div class="max-w-7xl mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">&copy; 2026 Bluetech Solutions RD</p>
+            <div class="text-[10px] text-slate-500 uppercase tracking-widest flex items-center gap-2">
+                Desarrollado por <span class="text-bt-primary font-black">Growpilot</span>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Nuevo link actualizado para Bluetech
         const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwsxepGxeTGt29WH7whnhqtNCWPvK9GyHBonrryna2sEQqE-X4UZiJRUBhuSMcs_K8G/exec';
         let allLaptops = [];
 
+        // Formateador de moneda RD$
+        const formatCurrency = (amount) => {
+            return new Intl.NumberFormat('es-DO', {
+                style: 'currency',
+                currency: 'DOP',
+                minimumFractionDigits: 0
+            }).format(amount).replace('DOP', 'RD$');
+        };
+
         async function fetchLaptops() {
             try {
-                // Configuración para manejar redirecciones de Google en entornos de producción como Vercel
                 const response = await fetch(GAS_WEB_APP_URL, { 
                     method: 'GET',
                     redirect: 'follow' 
                 });
                 
-                if (!response.ok) throw new Error('Error en la respuesta del servidor');
+                if (!response.ok) throw new Error('Error de servidor');
                 
                 allLaptops = await response.json();
                 renderLaptops(allLaptops);
@@ -65,36 +118,51 @@
                 document.getElementById('laptop-loader').classList.add('hidden');
                 document.getElementById('laptop-container').classList.remove('hidden');
             } catch (error) { 
-                console.error("Error detallado:", error); 
+                console.error("Error:", error); 
                 document.getElementById('laptop-loader').innerHTML = `
-                    <p class="text-red-500 font-bold uppercase text-xs mb-2">Error de conexión con el inventario</p>
-                    <p class="text-slate-500 text-[10px]">Aura: Verifica que el script tenga permisos para 'Cualquiera'.</p>
+                    <p class="text-red-500 font-bold uppercase text-xs mb-2">Error de Sincronización</p>
+                    <button onclick="location.reload()" class="text-bt-primary text-[10px] font-bold underline">Reintentar</button>
                 `;
             }
         }
 
         function renderLaptops(data) {
             const container = document.getElementById('laptop-container');
+            const countDisplay = document.getElementById('results-count');
+            
+            countDisplay.innerText = `${data.length} Equipos disponibles`;
+
             if (!data || data.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 col-span-full text-center py-20 italic">No hay equipos disponibles en este momento.</p>`;
+                container.innerHTML = `<p class="text-slate-500 col-span-full text-center py-20 italic">No se encontraron equipos.</p>`;
                 return;
             }
+
             container.innerHTML = data.map(laptop => `
-                <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group animate__animated animate__fadeIn text-left">
-                    <div class="bg-bt-deep rounded-[2rem] h-48 mb-6 flex items-center justify-center overflow-hidden">
+                <div class="bg-bt-card rounded-[2.5rem] p-6 border border-bt-border product-card group animate__animated animate__fadeIn text-left">
+                    <div class="bg-bt-deep rounded-[2rem] h-52 mb-6 flex items-center justify-center overflow-hidden relative">
                         <img src="${laptop.imagen_url || 'https://via.placeholder.com/400x300?text=Bluetech'}" 
-                             class="max-h-32 object-contain group-hover:scale-110 transition duration-700" alt="${laptop.modelo}">
+                             class="max-h-36 object-contain group-hover:scale-110 transition duration-700" 
+                             alt="${laptop.modelo}" loading="lazy">
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-bt-primary/20 text-bt-primary text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-tighter border border-bt-primary/30">Garantizado</span>
+                        </div>
                     </div>
                     <div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg leading-tight text-left text-white">${laptop.modelo}</h3>
-                            <span class="text-bt-primary font-black">$${laptop.precio}</span>
-                        </div>
-                        <p class="text-slate-500 text-[10px] mb-6 uppercase tracking-widest font-semibold italic text-left">
+                        <h3 class="font-bold text-xl leading-tight text-white mb-2 line-clamp-1">${laptop.modelo}</h3>
+                        <p class="text-slate-500 text-[10px] mb-6 uppercase tracking-widest font-bold italic line-clamp-1">
                             ${laptop.procesador || ''} · ${laptop.ram || ''} · ${laptop.ssd || ''}
                         </p>
-                        <a href="https://wa.me/1809XXXXXXX?text=Hola,%20me%20interesa%20el%20modelo%20${encodeURIComponent(laptop.modelo)}" 
-                           class="block w-full bg-bt-primary py-3 rounded-xl font-bold text-xs text-center hover:bg-bt-accent hover:text-bt-deep transition shadow-lg shadow-blue-900/20">Cotizar WhatsApp</a>
+                        <div class="flex items-center justify-between gap-4">
+                            <div class="flex flex-col">
+                                <span class="text-slate-600 text-[9px] font-bold uppercase tracking-tighter italic">Precio de venta</span>
+                                <span class="text-white font-black text-xl leading-none">${formatCurrency(laptop.precio)}</span>
+                            </div>
+                            <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Me%20gustaría%20cotizar%20la%20laptop:%20${encodeURIComponent(laptop.modelo)}" 
+                               target="_blank"
+                               class="bg-bt-primary w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-whatsapp hover:shadow-lg hover:shadow-whatsapp/20 transition-all duration-500">
+                                <i class="fa-solid fa-cart-shopping text-white"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             `).join('');
