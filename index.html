@@ -1,24 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bluetech | Hardware Pro & High-End Solutions</title>
-
+    
     <link rel="icon" type="image/png" href="logoblue.png">
-
+    
     <meta name="description" content="Especialistas en hardware de alto rendimiento en República Dominicana. Laptops pro, gaming y celulares.">
     <meta property="og:title" content="Bluetech | Equipa tu Victoria">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=1000">
-    <meta property="og:description" content="Hardware de élite diseñado para desarrolladores y gamers en RD.">
     <meta property="og:image" content="logoblue.png">
-    <meta property="og:url" content="https://bluetech-mu.vercel.app">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bt-deep': '#0A0F1D',
+                        'bt-primary': '#2563EB',
+                        'bt-accent': '#FBBD23',
+                        'bt-card': '#161E31',
+                        'bt-border': 'rgba(255, 255, 255, 0.08)',
+                        'whatsapp': '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; }
+        .bento-card:hover { transform: translateY(-8px); border-color: #2563EB; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 100; transition: all 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center group transition">
+                <img src="logoblue.png" alt="Bluetech Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="flex items-center gap-6 text-sm font-semibold">
+                <a href="laptops.html" class="hover:text-bt-primary transition">Catálogo Laptops</a>
+                <button class="relative p-2 hover:text-bt-primary transition"><i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </div>
+    </nav>
 
     <main class="max-w-7xl mx-auto px-6 pt-32 pb-12">
         <div class="mb-12">
@@ -30,7 +66,7 @@
             <a href="laptops.html" class="md:col-span-2 md:row-span-2 bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-end bg-gradient-to-t from-bt-primary/40 to-transparent group">
                 <div class="relative z-10">
                     <span class="bg-white/10 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Pro Series</span>
-                    <h3 class="text-5xl font-black mb-2">LAPTOPS</h3>
+                    <h3 class="text-5xl font-black mb-2 text-white">LAPTOPS</h3>
                     <p class="text-slate-300 italic text-sm">Oficina, Estudio y Gaming de alto nivel.</p>
                 </div>
                 <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition duration-700">
@@ -38,7 +74,7 @@
 
             <div class="md:col-span-2 glass rounded-[2.5rem] p-8 bento-card flex items-center justify-between group cursor-pointer bg-gradient-to-r from-bt-card to-bt-primary/10">
                 <div class="relative z-10">
-                    <h3 class="text-3xl font-black">CELULARES</h3>
+                    <h3 class="text-3xl font-black text-white">CELULARES</h3>
                     <p class="text-slate-500 text-sm">Apple & Samsung Specialists.</p>
                 </div>
                 <i class="fa-solid fa-mobile-screen-button text-6xl text-bt-primary opacity-50 group-hover:opacity-100 transition"></i>
@@ -48,14 +84,14 @@
                 <div class="bg-bt-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-bt-primary transition">
                     <i class="fa-solid fa-keyboard text-2xl text-bt-primary group-hover:text-white"></i>
                 </div>
-                <h3 class="font-bold text-xs uppercase tracking-widest">Periféricos</h3>
+                <h3 class="font-bold text-xs uppercase tracking-widest text-white">Periféricos</h3>
             </div>
 
             <div class="glass rounded-[2.5rem] p-8 bento-card flex flex-col items-center justify-center text-center group cursor-pointer border border-bt-border">
                 <div class="bg-bt-accent/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-bt-accent transition">
                     <i class="fa-solid fa-headphones text-2xl text-bt-accent group-hover:text-bt-deep"></i>
                 </div>
-                <h3 class="font-bold text-xs uppercase tracking-widest">Audio Pro</h3>
+                <h3 class="font-bold text-xs uppercase tracking-widest text-white">Audio Pro</h3>
             </div>
         </div>
     </main>
@@ -63,7 +99,7 @@
     <section class="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
-                <h2 class="text-3xl font-extrabold tracking-tight">Feedback de Clientes</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight text-white">Feedback de Clientes</h2>
                 <div class="flex items-center gap-2 mt-2">
                     <div class="flex text-bt-accent text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
@@ -78,7 +114,7 @@
             <div class="glass p-8 rounded-[2rem] border border-white/5 relative">
                 <i class="fa-brands fa-google absolute top-8 right-8 text-slate-700 text-xl"></i>
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-bt-primary rounded-full flex items-center justify-center font-bold">JD</div>
+                    <div class="w-12 h-12 bg-bt-primary rounded-full flex items-center justify-center font-bold text-white">JD</div>
                     <div>
                         <h4 class="font-bold text-sm text-white">Juan Delgado</h4>
                         <p class="text-[10px] text-slate-500 uppercase">Hace 2 días</p>
@@ -102,7 +138,7 @@
             <div class="glass p-8 rounded-[2rem] border border-white/5 relative">
                 <i class="fa-brands fa-google absolute top-8 right-8 text-slate-700 text-xl"></i>
                 <div class="flex items-center gap-4 mb-6">
-                    <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center font-bold">RC</div>
+                    <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center font-bold text-white">RC</div>
                     <div>
                         <h4 class="font-bold text-sm text-white">Ricardo Castro</h4>
                         <p class="text-[10px] text-slate-500 uppercase">Hace 1 mes</p>
@@ -119,15 +155,15 @@
 
     <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
-                    <span class="text-2xl font-black text-bt-primary uppercase mb-2">BlueTech</span>
+                    <img src="logoblue.png" alt="Bluetech Logo" class="h-6 w-auto mb-4 opacity-50 grayscale hover:grayscale-0 transition">
                     <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">&copy; 2026 Bluetech Solutions RD</p>
                 </div>
                 <div class="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
                     <span>Desarrollado por</span>
                     <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 text-bt-primary hover:text-white transition group">
-                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition">Aura</span>
+                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition font-black">Aura</span>
                     </a>
                 </div>
             </div>
