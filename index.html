@@ -3,153 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluetech | Curated Technology</title>
+    <title>Bluetech | Laptops Pro, Celulares y Accesorios Gaming</title>
+    <meta name="description" content="Catálogo exclusivo de Bluetech. Equipos de alto rendimiento para oficina, estudio y gaming en República Dominicana.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Store",
+      "name": "Bluetech",
+      "url": "https://bluetech.com.do",
+      "description": "Expertos en hardware de alto rendimiento y laptops gaming."
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        btBlue: '#326ab7',
-                        btNavy: '#2b3467',
-                        btYellow: '#f7b754',
-                    },
-                    letterSpacing: { 'tighter': '-0.05em' }
+                        'bt-deep': '#0A0F1D',
+                        'bt-primary': '#2563EB',
+                        'bt-accent': '#FBBD23',
+                        'bt-card': '#161E31',
+                        'bt-border': 'rgba(255, 255, 255, 0.08)'
+                    }
                 }
             }
         }
     </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
-        body { font-family: 'Outfit', sans-serif; background-color: #ffffff; color: #2b3467; }
-        
-        /* Efecto de Stock Crítico */
-        .stock-pulse {
-            animation: soft-pulse 2s infinite;
-        }
-        @keyframes soft-pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
 
-        /* Botón Curvo Orgánico */
-        .btn-modern {
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            border-radius: 18px;
-        }
-        .btn-modern:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(50, 106, 183, 0.1);
-        }
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .hero-glow { background: radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 70%); }
+        .mega-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+        .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .bento-card { transition: all 0.3s ease; }
+        .bento-card:hover { border-color: #2563EB; transform: translateY(-4px); background: rgba(37, 99, 235, 0.05); }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl py-5">
-        <div class="container mx-auto px-8 flex justify-between items-center border-b border-gray-50 pb-5">
-            <img src="logobluetech.png" alt="Bluetech" class="h-8 md:h-10 w-auto">
-            
-            <div class="hidden md:flex gap-12 text-[13px] font-semibold uppercase tracking-widest">
-                <a href="#" class="text-btBlue">Laptops</a>
-                <a href="#" class="text-gray-400 hover:text-btNavy transition-colors">Celulares</a>
-                <a href="#" class="text-gray-400 hover:text-btNavy transition-colors">Soporte</a>
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <a href="index.html" class="text-2xl font-black tracking-tighter text-bt-primary uppercase group">
+                    Blue<span class="text-white group-hover:text-bt-primary transition">Tech</span>
+                </a>
+
+                <div class="hidden lg:flex gap-8 items-center text-sm font-semibold text-slate-300">
+                    <div class="relative group py-4">
+                        <button class="flex items-center gap-2 hover:text-bt-primary transition">Computadoras <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                        <div class="absolute top-full -left-4 w-52 mega-menu pt-2">
+                            <div class="bg-bt-card rounded-xl p-3 border border-bt-border shadow-2xl">
+                                <a href="laptops.html" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-briefcase text-bt-primary"></i> Oficina</a>
+                                <a href="laptops.html" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-book text-bt-primary"></i> Estudio</a>
+                                <a href="laptops.html" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-gamepad text-bt-primary"></i> Gaming</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="hover:text-bt-primary transition">Celulares</a>
+
+                    <div class="relative group py-4">
+                        <button class="flex items-center gap-2 hover:text-bt-primary transition">Accesorios Gaming <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                        <div class="absolute top-full -left-20 w-[420px] mega-menu pt-2">
+                            <div class="bg-bt-card rounded-2xl p-4 border border-bt-border shadow-2xl grid grid-cols-2 gap-2">
+                                <a href="#" class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl transition">
+                                    <i class="fa-solid fa-headphones text-bt-primary text-xl"></i>
+                                    <div><p class="font-bold text-white text-xs text-left">Headphones</p></div>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl transition">
+                                    <i class="fa-solid fa-keyboard text-bt-primary text-xl"></i>
+                                    <div><p class="font-bold text-white text-xs text-left">Teclados</p></div>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl transition">
+                                    <i class="fa-solid fa-mouse text-bt-primary text-xl"></i>
+                                    <div><p class="font-bold text-white text-xs text-left">Mouse</p></div>
+                                </a>
+                                <a href="#" class="flex items-center gap-4 p-4 hover:bg-white/5 rounded-xl transition">
+                                    <i class="fa-solid fa-volume-high text-bt-primary text-xl"></i>
+                                    <div><p class="font-bold text-white text-xs text-left">Bocinas</p></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="flex items-center gap-6">
-                <i class="fas fa-search text-gray-300 cursor-pointer"></i>
-                <div class="h-6 w-[1px] bg-gray-100"></div>
-                <button class="text-xs font-black tracking-tighter">RD (ES)</button>
+            <div class="flex items-center gap-4 text-sm">
+                <div class="hidden md:flex relative">
+                    <input type="text" placeholder="Buscar..." class="bg-white/5 border border-white/10 rounded-xl py-2 px-4 pl-10 text-xs focus:ring-1 focus:ring-bt-primary focus:outline-none w-44 transition-all">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                </div>
+                <button class="relative p-2 hover:text-bt-primary transition"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </div>
     </nav>
 
-    <main class="container mx-auto px-8 py-20">
-        <header class="max-w-2xl mb-24">
-            <h1 class="text-6xl font-extrabold tracking-tighter leading-none mb-8">
-                Selección <span class="text-btBlue">Premium.</span>
-            </h1>
-            <p class="text-xl text-gray-400 font-light leading-relaxed">
-                Curamos la mejor tecnología del mercado. Equipos configurados para el máximo rendimiento profesional.
-            </p>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
-            
-            <div class="group relative">
-                <div class="aspect-[4/5] bg-[#F9F9FB] rounded-[40px] overflow-hidden mb-8 flex items-center justify-center p-12 transition-all duration-700 group-hover:bg-[#F0F2F5]">
-                    <div class="absolute top-8 left-8 flex items-center gap-2 bg-white/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm border border-red-50">
-                        <span class="w-2 h-2 bg-red-500 rounded-full stock-pulse"></span>
-                        <span class="text-[10px] font-extrabold text-red-500 uppercase tracking-widest">Solo 2 en Stock</span>
-                    </div>
-                    
-                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?q=80&w=600" 
-                         class="w-full h-auto object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-1000">
-                </div>
-
-                <div class="px-2">
-                    <div class="flex justify-between items-start mb-4">
-                        <h2 class="text-2xl font-semibold tracking-tighter">Dell Inspiron 15 3530</h2>
-                        <span class="text-2xl font-light text-btBlue">RD$43,595</span>
-                    </div>
-                    
-                    <div class="flex gap-4 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-8">
-                        <span>i7 13va Gen</span>
-                        <span class="text-gray-200">/</span>
-                        <span>1TB SSD</span>
-                        <span class="text-gray-200">/</span>
-                        <span>16GB RAM</span>
-                    </div>
-
-                    <a href="https://wa.me/1849XXXXXXX" class="btn-modern w-full bg-btNavy py-5 text-white text-sm font-bold flex items-center justify-center gap-3 hover:bg-btBlue">
-                        <i class="fab fa-whatsapp text-lg"></i>
-                        Adquirir ahora
-                    </a>
+    <header class="relative min-h-screen flex items-center pt-20 hero-glow overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="animate__animated animate__fadeInUp">
+                <span class="text-bt-primary font-bold text-sm tracking-widest uppercase mb-4 block">Hardware de Élite</span>
+                <h1 class="text-6xl md:text-8xl font-extrabold leading-none mb-6">Equipa tu <br><span class="text-bt-primary">Victoria.</span></h1>
+                <p class="text-slate-400 text-lg mb-10 max-w-md italic">Diseñado para desarrolladores, gamers y profesionales que buscan la perfección técnica.</p>
+                <div class="flex gap-4">
+                    <a href="laptops.html" class="bg-bt-primary hover:bg-blue-700 text-white px-10 py-4 rounded-2xl font-bold transition transform hover:scale-105 shadow-lg shadow-blue-900/40 text-center">Explorar Catálogo</a>
+                    <button class="glass px-10 py-4 rounded-2xl font-bold hover:bg-white/10 transition">Soporte</button>
                 </div>
             </div>
-
-            <div class="group relative">
-                <div class="aspect-[4/5] bg-[#F9F9FB] rounded-[40px] overflow-hidden mb-8 flex items-center justify-center p-12 transition-all duration-700 group-hover:bg-[#F0F2F5]">
-                    <img src="https://images.unsplash.com/photo-1517336712461-4e1a77a9597e?q=80&w=600" 
-                         class="w-full h-auto object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-1000">
-                </div>
-
-                <div class="px-2">
-                    <div class="flex justify-between items-start mb-4">
-                        <h2 class="text-2xl font-semibold tracking-tighter text-btNavy">Lenovo Ideapad Slim 5</h2>
-                        <span class="text-2xl font-light text-btBlue">RD$47,995</span>
-                    </div>
-                    
-                    <div class="flex gap-4 text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-8">
-                        <span>2024 Model</span>
-                        <span class="text-gray-200">/</span>
-                        <span>Core i7 150U</span>
-                        <span class="text-gray-200">/</span>
-                        <span>16" Touch</span>
-                    </div>
-
-                    <a href="#" class="btn-modern w-full bg-btNavy py-5 text-white text-sm font-bold flex items-center justify-center gap-3 hover:bg-btBlue">
-                        <i class="fab fa-whatsapp text-lg"></i>
-                        Adquirir ahora
-                    </a>
-                </div>
+            <div class="relative animate__animated animate__zoomIn">
+                <div class="absolute -inset-10 bg-bt-primary/20 blur-[100px] rounded-full"></div>
+                <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=1000" alt="Laptop Bluetech" class="relative rounded-[2.5rem] shadow-2xl border border-white/10 transform rotate-3 hover:rotate-0 transition-all duration-700 cursor-pointer">
             </div>
-
         </div>
-    </main>
+    </header>
 
-    <footer class="py-24 border-t border-gray-50">
-        <div class="container mx-auto px-8 grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-12">
-            <div>
-                <img src="logobluetech.png" alt="Bluetech" class="h-8 mb-8">
-                <p class="text-gray-400 max-w-sm text-sm font-light">Especialistas en hardware de alto rendimiento. Garantía oficial en República Dominicana.</p>
+    <section class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-6 h-auto md:h-[600px]">
+            <div class="md:col-span-2 md:row-span-2 glass rounded-[2rem] p-10 flex flex-col justify-end bg-gradient-to-t from-bt-primary/40 to-transparent relative overflow-hidden group">
+                <h3 class="text-5xl font-black mb-4 relative z-10">GAMING SERIES</h3>
+                <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
             </div>
-            <div class="md:text-right">
-                <div class="text-[10px] font-black uppercase tracking-[0.3em] text-gray-300 mb-4">Síguenos</div>
-                <div class="flex md:justify-end gap-8 text-btNavy text-xl">
-                    <i class="fab fa-instagram hover:text-btBlue cursor-pointer"></i>
-                    <i class="fab fa-whatsapp hover:text-btBlue cursor-pointer"></i>
+            <div class="md:col-span-2 glass rounded-[2rem] p-8 flex items-center justify-between group hover:bg-bt-primary/10 transition bento-card">
+                <div><h3 class="text-2xl font-bold">CELULARES</h3><p class="text-slate-500 text-sm italic">Lo último de Apple & Samsung.</p></div>
+                <i class="fa-solid fa-mobile-screen-button text-4xl text-bt-primary"></i>
+            </div>
+            <div class="glass rounded-[2rem] p-8 flex flex-col items-center justify-center text-center bento-card border border-bt-border">
+                <i class="fa-solid fa-keyboard text-bt-accent text-3xl mb-4"></i><h3 class="font-bold text-xs">TECLADOS</h3>
+            </div>
+            <div class="glass rounded-[2rem] p-8 flex flex-col items-center justify-center text-center bento-card border border-bt-border">
+                <i class="fa-solid fa-headphones text-bt-primary text-3xl mb-4"></i><h3 class="font-bold text-xs">AUDIO PRO</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-6 py-20 bg-bt-card/50 rounded-[3rem] border border-bt-border">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold">Encuentra tu serie ideal</h2>
+            <p class="text-slate-500 text-sm uppercase tracking-widest font-bold mt-2">Especificaciones Bluetech</p>
+        </div>
+        <div class="overflow-x-auto px-6">
+            <table class="w-full text-left border-collapse">
+                <tbody class="text-sm">
+                    <tr class="border-b border-white/5 text-bt-primary uppercase text-[10px] font-black tracking-widest">
+                        <td class="py-6 px-4">Categoría</td>
+                        <td class="py-6 px-4">Procesador</td>
+                        <td class="py-6 px-4">Gráficos</td>
+                        <td class="py-6 px-4">Uso Ideal</td>
+                    </tr>
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                        <td class="py-6 px-4 font-bold text-white">Oficina / Home</td>
+                        <td class="py-6 px-4 text-slate-400 italic">Intel i3 / i5</td>
+                        <td class="py-6 px-4 text-slate-400 italic">UHD Graphics</td>
+                        <td class="py-6 px-4 text-slate-400">Web, Office, Zoom</td>
+                    </tr>
+                    <tr class="border-b border-white/5 hover:bg-white/5 transition">
+                        <td class="py-6 px-4 font-bold text-white uppercase tracking-tighter">Gaming / 3D</td>
+                        <td class="py-6 px-4 text-slate-400 italic">Intel i7 / i9</td>
+                        <td class="py-6 px-4 text-slate-400 italic font-bold">NVIDIA RTX</td>
+                        <td class="py-6 px-4 text-slate-400">AAA Games, Render</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8 mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <span class="text-2xl font-black text-bt-primary uppercase mb-6 block">BlueTech</span>
+                    <p class="text-slate-500 max-w-sm mb-6">Expertos en hardware de alto rendimiento. Soluciones locales con garantía directa en República Dominicana.</p>
+                </div>
+                <div><h4 class="font-bold mb-6 text-white text-sm">Contacto</h4><ul class="space-y-3 text-xs text-slate-500"><li>Santo Domingo, RD</li><li>ventas@bluetech.com.do</li></ul></div>
+            </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-700 text-[10px] uppercase tracking-widest">&copy; 2026 Bluetech Solutions</p>
+                <div class="flex items-center gap-2 text-xs text-slate-500">
+                    <span>Creado por</span>
+                    <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 font-bold text-bt-primary hover:text-white transition group">
+                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition">Aura</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                    </a>
                 </div>
             </div>
         </div>
