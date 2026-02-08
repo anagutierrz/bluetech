@@ -3,174 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Laptops | Bluetech</title>
-    <meta name="description" content="Encuentra las mejores laptops en Bluetech. Equipos de alto rendimiento para gaming, oficina y estudio con garantía local.">
-    
+    <title>Catálogo | Bluetech</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bt-deep': '#0A0F1D',
-                        'bt-primary': '#2563EB',
-                        'bt-accent': '#FBBD23',
-                        'bt-card': '#161E31',
-                        'bt-border': 'rgba(255, 255, 255, 0.08)'
-                    }
-                }
-            }
-        }
+        tailwind.config = { theme: { extend: { colors: { 'bt-deep': '#0A0F1D', 'bt-primary': '#2563EB', 'bt-card': '#161E31', 'bt-border': 'rgba(255, 255, 255, 0.08)' } } } }
     </script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; text-align: left; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .product-card:hover { transform: translateY(-8px); border-color: #2563EB; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1); }
-        .mega-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
-        .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .product-card { transition: all 0.4s ease; text-align: left; }
+        .product-card:hover { transform: translateY(-8px); border-color: #2563EB; }
     </style>
 </head>
 <body class="antialiased">
-
     <nav class="fixed w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center relative">
-            <div class="flex items-center gap-10">
-                <a href="index.html" class="text-2xl font-black tracking-tighter text-bt-primary uppercase group">
-                    Blue<span class="text-white group-hover:text-bt-primary transition">tech</span>
-                </a>
-            </div>
-            <div class="flex items-center gap-4 text-sm font-semibold">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center text-left">
+            <a href="index.html" class="text-2xl font-black text-bt-primary uppercase">BlueTech</a>
+            <div class="flex gap-6 text-sm font-semibold">
                 <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
                 <a href="laptops.html" class="text-bt-primary">Laptops</a>
-                <button class="relative p-2 hover:text-bt-primary transition"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </div>
     </nav>
 
-    <header class="pt-40 pb-12 bg-gradient-to-b from-bt-primary/10 to-transparent">
-        <div class="max-w-7xl mx-auto px-6">
-            <h1 class="text-4xl md:text-5xl font-extrabold">Catálogo <span class="text-bt-primary italic">Pro</span></h1>
-            <p class="text-slate-400 mt-2 text-sm italic">Inventario sincronizado en tiempo real para Bluetech.</p>
+    <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
+        <div class="mb-12 relative max-w-2xl mx-auto lg:mx-0">
+            <input type="text" id="laptop-search" placeholder="Buscar modelo, marca o procesador..." 
+                   class="w-full bg-bt-card border border-bt-border rounded-2xl py-5 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm">
+            <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
         </div>
-    </header>
 
-    <main class="max-w-7xl mx-auto px-6 py-12">
-        <div class="flex flex-col lg:flex-row gap-12">
-            
-            <aside class="w-full lg:w-1/4">
-                <div class="glass rounded-[2rem] p-8 sticky top-32 border border-bt-border">
-                    <h2 class="text-lg font-bold mb-8 flex items-center justify-between">
-                        Filtros 
-                        <i class="fa-solid fa-sliders text-bt-primary"></i>
-                    </h2>
-                    <div class="mb-10">
-                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Uso Sugerido</p>
-                        <div class="space-y-4 text-sm">
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <input type="checkbox" class="w-4 h-4 rounded border-white/10 bg-bt-deep checked:bg-bt-primary transition">
-                                <span class="group-hover:text-bt-primary">Gaming</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <input type="checkbox" class="w-4 h-4 rounded border-white/10 bg-bt-deep checked:bg-bt-primary transition">
-                                <span class="group-hover:text-bt-primary">Oficina / Dev</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <section class="w-full lg:w-3/4">
-                <div id="laptop-loader" class="text-center py-20">
-                    <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-4xl"></i>
-                    <p class="mt-4 text-slate-500 font-bold uppercase tracking-widest text-xs">Cargando Inventario Aura...</p>
-                </div>
-                
-                <div id="laptop-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 hidden">
-                    </div>
-            </section>
+        <div id="laptop-loader" class="text-center py-20">
+            <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-5xl"></i>
+            <p class="mt-6 text-slate-500 font-bold uppercase tracking-widest text-xs">Sincronizando inventario...</p>
         </div>
+        
+        <div id="laptop-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 hidden"></div>
     </main>
-
-    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8 mt-20">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-700 text-[10px] uppercase tracking-widest">&copy; 2026 Bluetech Solutions</p>
-                <div class="flex items-center gap-2 text-xs text-slate-500">
-                    <span>Creado por</span>
-                    <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 font-bold text-bt-primary hover:text-white transition group">
-                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition">Aura</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script>
         const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby_PNCQVB_Cjfx5Nt5HB6sUjnN-gd5JTAbws3680zY_bgE6n-5w6WCKPRDYPCO2_Qwn/exec';
+        let allLaptops = [];
 
         async function fetchLaptops() {
-            const container = document.getElementById('laptop-container');
-            const loader = document.getElementById('laptop-loader');
-
             try {
-                const response = await fetch(GAS_WEB_APP_URL);
-                const laptops = await response.json();
-
-                if (laptops.error) throw new Error(laptops.error);
-
-                container.innerHTML = laptops.map(laptop => `
-                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group animate__animated animate__fadeIn">
-                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
-                            <img src="${laptop.imagen_url || 'https://via.placeholder.com/400x300?text=No+Image'}" 
-                                 alt="${laptop.modelo}" 
-                                 title="${laptop.descripcion_seo || laptop.modelo}"
-                                 class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
-                            ${laptop.etiqueta ? `
-                                <div class="absolute top-4 right-4 bg-bt-primary text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">
-                                    ${laptop.etiqueta}
-                                </div>
-                            ` : ''}
-                        </div>
-                        <div class="px-3 text-center md:text-left">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">${laptop.modelo}</h3>
-                                <span class="text-bt-primary font-black text-xl">$${laptop.precio}</span>
-                            </div>
-                            <p class="text-slate-500 text-[10px] font-semibold mb-6 uppercase tracking-wider italic">
-                                ${laptop.procesador} · ${laptop.ram} · ${laptop.ssd}
-                            </p>
-                            
-                            <span class="hidden">${laptop.slug}</span>
-
-                            <div class="flex gap-3">
-                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
-                                <a href="https://wa.me/tu_numero_aqui?text=Hola,%20me%20interesa%20la%20laptop%20${encodeURIComponent(laptop.modelo)}" 
-                                   class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep">
-                                    <i class="fa-solid fa-cart-plus"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-
-                loader.classList.add('hidden');
-                container.classList.remove('hidden');
-
-            } catch (error) {
-                console.error("Error cargando inventario:", error);
-                loader.innerHTML = `
-                    <p class="text-red-500 font-bold">Error al sincronizar con Google Sheets.</p>
-                    <p class="text-slate-500 text-xs mt-2">${error.message}</p>
-                `;
+                // Configuración necesaria para evitar el error 'Failed to fetch' en Vercel
+                const response = await fetch(GAS_WEB_APP_URL, { 
+                    method: 'GET', 
+                    mode: 'cors', 
+                    redirect: 'follow' 
+                });
+                allLaptops = await response.json();
+                renderLaptops(allLaptops);
+                document.getElementById('laptop-loader').classList.add('hidden');
+                document.getElementById('laptop-container').classList.remove('hidden');
+            } catch (error) { 
+                console.error("Error:", error); 
+                document.getElementById('laptop-loader').innerHTML = '<p class="text-red-500 font-bold uppercase text-xs">Error de conexión con el inventario</p>';
             }
         }
+
+        function renderLaptops(data) {
+            const container = document.getElementById('laptop-container');
+            if (data.length === 0) {
+                container.innerHTML = `<p class="text-slate-500 col-span-full text-center py-20 italic text-left">No se encontraron equipos.</p>`;
+                return;
+            }
+            container.innerHTML = data.map(laptop => `
+                <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group animate__animated animate__fadeIn text-left">
+                    <div class="bg-bt-deep rounded-[2rem] h-48 mb-6 flex items-center justify-center overflow-hidden">
+                        <img src="${laptop.imagen_url}" class="max-h-32 object-contain group-hover:scale-110 transition duration-700" alt="${laptop.modelo}">
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg leading-tight text-left">${laptop.modelo}</h3>
+                            <span class="text-bt-primary font-black">$${laptop.precio}</span>
+                        </div>
+                        <p class="text-slate-500 text-[10px] mb-6 uppercase tracking-widest font-semibold italic text-left">${laptop.procesador} · ${laptop.ram} · ${laptop.ssd}</p>
+                        <a href="https://wa.me/1809XXXXXXX?text=Hola,%20me%20interesa%20el%20modelo%20${encodeURIComponent(laptop.modelo)}" 
+                           class="block w-full bg-bt-primary py-3 rounded-xl font-bold text-xs text-center hover:bg-bt-accent hover:text-bt-deep transition shadow-lg shadow-blue-900/20">Cotizar</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('laptop-search').addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filtered = allLaptops.filter(l => 
+                l.modelo.toLowerCase().includes(searchTerm) || 
+                l.marca.toLowerCase().includes(searchTerm) ||
+                l.procesador.toLowerCase().includes(searchTerm)
+            );
+            renderLaptops(filtered);
+        });
 
         document.addEventListener('DOMContentLoaded', fetchLaptops);
     </script>
