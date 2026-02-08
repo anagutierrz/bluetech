@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laptops | Bluetech - Catálogo de Alto Rendimiento</title>
+    <title>Catálogo de Laptops | Bluetech</title>
+    <meta name="description" content="Encuentra las mejores laptops en Bluetech. Equipos de alto rendimiento para gaming, oficina y estudio con garantía local.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -38,27 +39,15 @@
 <body class="antialiased">
 
     <nav class="fixed w-full z-50 px-6 py-4">
-        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center relative">
             <div class="flex items-center gap-10">
                 <a href="index.html" class="text-2xl font-black tracking-tighter text-bt-primary uppercase group">
-                    Blue<span class="text-white group-hover:text-bt-primary transition">Tech</span>
+                    Blue<span class="text-white group-hover:text-bt-primary transition">tech</span>
                 </a>
-                <div class="hidden lg:flex gap-8 items-center text-sm font-semibold text-slate-300">
-                    <div class="relative group py-4">
-                        <button class="flex items-center gap-2 text-bt-primary">Computadoras <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
-                        <div class="absolute top-full -left-4 w-52 mega-menu pt-2">
-                            <div class="bg-bt-card rounded-xl p-3 border border-bt-border shadow-2xl">
-                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-briefcase text-bt-primary text-xs"></i> Oficina</a>
-                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-book text-bt-primary text-xs"></i> Estudio</a>
-                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-gamepad text-bt-primary text-xs"></i> Gaming</a>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="#" class="hover:text-bt-primary transition">Celulares</a>
-                    <a href="#" class="hover:text-bt-primary transition">Accesorios Gaming</a>
-                </div>
             </div>
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-4 text-sm font-semibold">
+                <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
+                <a href="laptops.html" class="text-bt-primary">Laptops</a>
                 <button class="relative p-2 hover:text-bt-primary transition"><i class="fa-solid fa-cart-shopping"></i></button>
             </div>
         </div>
@@ -66,12 +55,8 @@
 
     <header class="pt-40 pb-12 bg-gradient-to-b from-bt-primary/10 to-transparent">
         <div class="max-w-7xl mx-auto px-6">
-            <nav class="flex gap-2 text-[10px] uppercase font-bold tracking-widest text-slate-500 mb-4">
-                <a href="index.html" class="hover:text-white transition">Inicio</a>
-                <span>/</span>
-                <span class="text-bt-primary">Catálogo Laptops</span>
-            </nav>
-            <h1 class="text-4xl md:text-5xl font-extrabold">Hardware <span class="text-bt-primary italic">Pro</span></h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold">Catálogo <span class="text-bt-primary italic">Pro</span></h1>
+            <p class="text-slate-400 mt-2 text-sm italic">Inventario sincronizado en tiempo real para Bluetech.</p>
         </div>
     </header>
 
@@ -84,101 +69,37 @@
                         Filtros 
                         <i class="fa-solid fa-sliders text-bt-primary"></i>
                     </h2>
-                    
                     <div class="mb-10">
-                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Categoría de Uso</p>
-                        <div class="space-y-4">
+                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Uso Sugerido</p>
+                        <div class="space-y-4 text-sm">
                             <label class="flex items-center gap-3 cursor-pointer group">
-                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
-                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Gaming & Stream</span>
+                                <input type="checkbox" class="w-4 h-4 rounded border-white/10 bg-bt-deep checked:bg-bt-primary transition">
+                                <span class="group-hover:text-bt-primary">Gaming</span>
                             </label>
                             <label class="flex items-center gap-3 cursor-pointer group">
-                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
-                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Trabajo / Dev</span>
-                            </label>
-                            <label class="flex items-center gap-3 cursor-pointer group">
-                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
-                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Estudiantes</span>
+                                <input type="checkbox" class="w-4 h-4 rounded border-white/10 bg-bt-deep checked:bg-bt-primary transition">
+                                <span class="group-hover:text-bt-primary">Oficina / Dev</span>
                             </label>
                         </div>
                     </div>
-
-                    <div class="mb-10">
-                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Procesador</p>
-                        <select class="w-full bg-bt-deep border border-bt-border rounded-xl p-3 text-xs font-bold outline-none focus:border-bt-primary transition">
-                            <option>Todos los procesadores</option>
-                            <option>Apple M-Series</option>
-                            <option>Intel Core i7 / i9</option>
-                            <option>AMD Ryzen 7 / 9</option>
-                        </select>
-                    </div>
-
-                    <button class="w-full bg-bt-primary py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition shadow-lg shadow-blue-900/40">
-                        Actualizar Lista
-                    </button>
                 </div>
             </aside>
 
             <section class="w-full lg:w-3/4">
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    
-                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group">
-                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=400" alt="Gaming Laptop" class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
-                            <div class="absolute top-4 right-4 bg-bt-accent text-bt-deep text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">Oferta</div>
-                        </div>
-                        <div class="px-3">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">ROG Zephyrus G14</h3>
-                                <span class="text-bt-primary font-black text-xl">$1,699</span>
-                            </div>
-                            <p class="text-slate-500 text-[11px] font-semibold mb-6 uppercase tracking-wider italic">RTX 4060 · 16GB · 1TB SSD</p>
-                            
-                            <div class="flex gap-3">
-                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
-                                <button class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep group/btn">
-                                    <i class="fa-solid fa-cart-plus group-hover/btn:scale-110 transition"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group">
-                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517336712462-83679c148830?q=80&w=400" alt="MacBook Pro" class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
-                            <div class="absolute top-4 right-4 bg-bt-primary text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">Premium</div>
-                        </div>
-                        <div class="px-3">
-                            <div class="flex justify-between items-start mb-2">
-                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">MacBook Pro M3</h3>
-                                <span class="text-bt-primary font-black text-xl">$1,999</span>
-                            </div>
-                            <p class="text-slate-500 text-[11px] font-semibold mb-6 uppercase tracking-wider italic">M3 Chip · 16GB · 512GB SSD</p>
-                            
-                            <div class="flex gap-3">
-                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
-                                <button class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep group/btn">
-                                    <i class="fa-solid fa-cart-plus group-hover/btn:scale-110 transition"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
+                <div id="laptop-loader" class="text-center py-20">
+                    <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-4xl"></i>
+                    <p class="mt-4 text-slate-500 font-bold uppercase tracking-widest text-xs">Cargando Inventario Aura...</p>
                 </div>
-
-                <div class="mt-20 flex justify-center items-center gap-3">
-                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center hover:bg-bt-primary transition"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button class="w-12 h-12 rounded-2xl bg-bt-primary flex items-center justify-center font-bold">1</button>
-                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center font-bold hover:text-bt-primary">2</button>
-                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center hover:bg-bt-primary transition"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
+                
+                <div id="laptop-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 hidden">
+                    </div>
             </section>
         </div>
     </main>
 
-    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8 mt-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-slate-700 text-[10px] uppercase tracking-widest">&copy; 2026 Bluetech Solutions</p>
                 <div class="flex items-center gap-2 text-xs text-slate-500">
                     <span>Creado por</span>
@@ -191,5 +112,67 @@
         </div>
     </footer>
 
+    <script>
+        const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby_PNCQVB_Cjfx5Nt5HB6sUjnN-gd5JTAbws3680zY_bgE6n-5w6WCKPRDYPCO2_Qwn/exec';
+
+        async function fetchLaptops() {
+            const container = document.getElementById('laptop-container');
+            const loader = document.getElementById('laptop-loader');
+
+            try {
+                const response = await fetch(GAS_WEB_APP_URL);
+                const laptops = await response.json();
+
+                if (laptops.error) throw new Error(laptops.error);
+
+                container.innerHTML = laptops.map(laptop => `
+                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group animate__animated animate__fadeIn">
+                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
+                            <img src="${laptop.imagen_url || 'https://via.placeholder.com/400x300?text=No+Image'}" 
+                                 alt="${laptop.modelo}" 
+                                 title="${laptop.descripcion_seo || laptop.modelo}"
+                                 class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
+                            ${laptop.etiqueta ? `
+                                <div class="absolute top-4 right-4 bg-bt-primary text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">
+                                    ${laptop.etiqueta}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="px-3 text-center md:text-left">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">${laptop.modelo}</h3>
+                                <span class="text-bt-primary font-black text-xl">$${laptop.precio}</span>
+                            </div>
+                            <p class="text-slate-500 text-[10px] font-semibold mb-6 uppercase tracking-wider italic">
+                                ${laptop.procesador} · ${laptop.ram} · ${laptop.ssd}
+                            </p>
+                            
+                            <span class="hidden">${laptop.slug}</span>
+
+                            <div class="flex gap-3">
+                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
+                                <a href="https://wa.me/tu_numero_aqui?text=Hola,%20me%20interesa%20la%20laptop%20${encodeURIComponent(laptop.modelo)}" 
+                                   class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+                loader.classList.add('hidden');
+                container.classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Error cargando inventario:", error);
+                loader.innerHTML = `
+                    <p class="text-red-500 font-bold">Error al sincronizar con Google Sheets.</p>
+                    <p class="text-slate-500 text-xs mt-2">${error.message}</p>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchLaptops);
+    </script>
 </body>
 </html>
