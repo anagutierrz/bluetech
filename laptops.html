@@ -50,26 +50,32 @@
 
         async function fetchLaptops() {
             try {
-                // SOLUCIÓN TÉCNICA: Se agrega redirect: 'follow' para evitar el error en producción
+                // CAMBIO CLAVE: Se elimina 'mode: cors' que a veces causa conflicto con Google Apps Script y se deja solo el redirect
                 const response = await fetch(GAS_WEB_APP_URL, { 
-                    method: 'GET', 
-                    mode: 'cors', 
+                    method: 'GET',
                     redirect: 'follow' 
                 });
+                
+                if (!response.ok) throw new Error('Network response was not ok');
+                
                 allLaptops = await response.json();
                 renderLaptops(allLaptops);
+                
                 document.getElementById('laptop-loader').classList.add('hidden');
                 document.getElementById('laptop-container').classList.remove('hidden');
             } catch (error) { 
-                console.error("Error:", error); 
-                document.getElementById('laptop-loader').innerHTML = '<p class="text-red-500 font-bold uppercase text-xs">Error de conexión con el inventario</p>';
+                console.error("Error detallado:", error); 
+                document.getElementById('laptop-loader').innerHTML = `
+                    <p class="text-red-500 font-bold uppercase text-xs mb-2">Error de conexión</p>
+                    <p class="text-slate-500 text-[10px]">Asegúrate de que el script esté publicado como 'Cualquiera'.</p>
+                `;
             }
         }
 
         function renderLaptops(data) {
             const container = document.getElementById('laptop-container');
-            if (data.length === 0) {
-                container.innerHTML = `<p class="text-slate-500 col-span-full text-center py-20 italic text-left">No se encontraron equipos.</p>`;
+            if (!data || data.length === 0) {
+                container.innerHTML = `<p class="text-slate-500 col-span-full text-center py-20 italic">No hay productos disponibles.</p>`;
                 return;
             }
             container.innerHTML = data.map(laptop => `
@@ -82,7 +88,7 @@
                             <h3 class="font-bold text-lg leading-tight text-left">${laptop.modelo}</h3>
                             <span class="text-bt-primary font-black">$${laptop.precio}</span>
                         </div>
-                        <p class="text-slate-500 text-[10px] mb-6 uppercase tracking-widest font-semibold italic text-left">${laptop.procesador} · ${laptop.ram} · ${laptop.ssd}</p>
+                        <p class="text-slate-500 text-[10px] mb-6 uppercase tracking-widest font-semibold italic text-left">${laptop.procesador || ''} · ${laptop.ram || ''} · ${laptop.ssd || ''}</p>
                         <a href="https://wa.me/1809XXXXXXX?text=Hola,%20me%20interesa%20el%20modelo%20${encodeURIComponent(laptop.modelo)}" 
                            class="block w-full bg-bt-primary py-3 rounded-xl font-bold text-xs text-center hover:bg-bt-accent hover:text-bt-deep transition shadow-lg shadow-blue-900/20">Cotizar</a>
                     </div>
@@ -93,9 +99,8 @@
         document.getElementById('laptop-search').addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filtered = allLaptops.filter(l => 
-                l.modelo.toLowerCase().includes(searchTerm) || 
-                l.marca.toLowerCase().includes(searchTerm) ||
-                l.procesador.toLowerCase().includes(searchTerm)
+                (l.modelo && l.modelo.toLowerCase().includes(searchTerm)) || 
+                (l.marca && l.marca.toLowerCase().includes(searchTerm))
             );
             renderLaptops(filtered);
         });
