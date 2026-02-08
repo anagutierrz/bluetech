@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptops | Bluetech - Catálogo de Alto Rendimiento</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bt-deep': '#0A0F1D',
+                        'bt-primary': '#2563EB',
+                        'bt-accent': '#FBBD23',
+                        'bt-card': '#161E31',
+                        'bt-border': 'rgba(255, 255, 255, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .product-card:hover { transform: translateY(-8px); border-color: #2563EB; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1); }
+        .mega-menu { opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+        .group:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-10">
+                <a href="index.html" class="text-2xl font-black tracking-tighter text-bt-primary uppercase group">
+                    Blue<span class="text-white group-hover:text-bt-primary transition">Tech</span>
+                </a>
+                <div class="hidden lg:flex gap-8 items-center text-sm font-semibold text-slate-300">
+                    <div class="relative group py-4">
+                        <button class="flex items-center gap-2 text-bt-primary">Computadoras <i class="fa-solid fa-chevron-down text-[10px]"></i></button>
+                        <div class="absolute top-full -left-4 w-52 mega-menu pt-2">
+                            <div class="bg-bt-card rounded-xl p-3 border border-bt-border shadow-2xl">
+                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-briefcase text-bt-primary text-xs"></i> Oficina</a>
+                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-book text-bt-primary text-xs"></i> Estudio</a>
+                                <a href="#" class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg transition"><i class="fa-solid fa-gamepad text-bt-primary text-xs"></i> Gaming</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="hover:text-bt-primary transition">Celulares</a>
+                    <a href="#" class="hover:text-bt-primary transition">Accesorios Gaming</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="relative p-2 hover:text-bt-primary transition"><i class="fa-solid fa-cart-shopping"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-12 bg-gradient-to-b from-bt-primary/10 to-transparent">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="flex gap-2 text-[10px] uppercase font-bold tracking-widest text-slate-500 mb-4">
+                <a href="index.html" class="hover:text-white transition">Inicio</a>
+                <span>/</span>
+                <span class="text-bt-primary">Catálogo Laptops</span>
+            </nav>
+            <h1 class="text-4xl md:text-5xl font-extrabold">Hardware <span class="text-bt-primary italic">Pro</span></h1>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col lg:flex-row gap-12">
+            
+            <aside class="w-full lg:w-1/4">
+                <div class="glass rounded-[2rem] p-8 sticky top-32 border border-bt-border">
+                    <h2 class="text-lg font-bold mb-8 flex items-center justify-between">
+                        Filtros 
+                        <i class="fa-solid fa-sliders text-bt-primary"></i>
+                    </h2>
+                    
+                    <div class="mb-10">
+                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Categoría de Uso</p>
+                        <div class="space-y-4">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
+                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Gaming & Stream</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
+                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Trabajo / Dev</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 rounded-md border-white/10 bg-bt-deep checked:bg-bt-primary transition">
+                                <span class="text-sm font-medium group-hover:text-bt-primary transition">Estudiantes</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mb-10">
+                        <p class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 mb-6">Procesador</p>
+                        <select class="w-full bg-bt-deep border border-bt-border rounded-xl p-3 text-xs font-bold outline-none focus:border-bt-primary transition">
+                            <option>Todos los procesadores</option>
+                            <option>Apple M-Series</option>
+                            <option>Intel Core i7 / i9</option>
+                            <option>AMD Ryzen 7 / 9</option>
+                        </select>
+                    </div>
+
+                    <button class="w-full bg-bt-primary py-4 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-blue-700 transition shadow-lg shadow-blue-900/40">
+                        Actualizar Lista
+                    </button>
+                </div>
+            </aside>
+
+            <section class="w-full lg:w-3/4">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                    
+                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group">
+                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=400" alt="Gaming Laptop" class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
+                            <div class="absolute top-4 right-4 bg-bt-accent text-bt-deep text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">Oferta</div>
+                        </div>
+                        <div class="px-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">ROG Zephyrus G14</h3>
+                                <span class="text-bt-primary font-black text-xl">$1,699</span>
+                            </div>
+                            <p class="text-slate-500 text-[11px] font-semibold mb-6 uppercase tracking-wider italic">RTX 4060 · 16GB · 1TB SSD</p>
+                            
+                            <div class="flex gap-3">
+                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
+                                <button class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep group/btn">
+                                    <i class="fa-solid fa-cart-plus group-hover/btn:scale-110 transition"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-bt-card rounded-[2.5rem] p-5 border border-bt-border product-card group">
+                        <div class="relative bg-bt-deep rounded-[2rem] h-56 mb-6 flex items-center justify-center overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1517336712462-83679c148830?q=80&w=400" alt="MacBook Pro" class="max-h-40 object-contain group-hover:scale-110 transition duration-700">
+                            <div class="absolute top-4 right-4 bg-bt-primary text-white text-[9px] font-black px-3 py-1.5 rounded-full uppercase tracking-tighter">Premium</div>
+                        </div>
+                        <div class="px-3">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-bt-primary transition">MacBook Pro M3</h3>
+                                <span class="text-bt-primary font-black text-xl">$1,999</span>
+                            </div>
+                            <p class="text-slate-500 text-[11px] font-semibold mb-6 uppercase tracking-wider italic">M3 Chip · 16GB · 512GB SSD</p>
+                            
+                            <div class="flex gap-3">
+                                <button class="flex-1 glass py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-white/10 transition">Detalles</button>
+                                <button class="w-14 bg-bt-primary rounded-2xl flex items-center justify-center hover:bg-bt-accent transition hover:text-bt-deep group/btn">
+                                    <i class="fa-solid fa-cart-plus group-hover/btn:scale-110 transition"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-20 flex justify-center items-center gap-3">
+                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center hover:bg-bt-primary transition"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="w-12 h-12 rounded-2xl bg-bt-primary flex items-center justify-center font-bold">1</button>
+                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center font-bold hover:text-bt-primary">2</button>
+                    <button class="w-12 h-12 rounded-2xl glass flex items-center justify-center hover:bg-bt-primary transition"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-700 text-[10px] uppercase tracking-widest">&copy; 2026 Bluetech Solutions</p>
+                <div class="flex items-center gap-2 text-xs text-slate-500">
+                    <span>Creado por</span>
+                    <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 font-bold text-bt-primary hover:text-white transition group">
+                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition">Aura</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
