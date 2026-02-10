@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celulares | Bluetech RD</title>
+    <link rel="icon" type="image/png" href="logoblue.png">
+    
+    <meta name="description" content="Tecnología de élite en celulares Apple y Samsung. Bluetech República Dominicana.">
+    <meta property="og:title" content="Celulares | Bluetech RD">
+    <meta property="og:image" content="logoblue.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bt-deep': '#0A0F1D',
+                        'bt-primary': '#2563EB',
+                        'bt-card': '#161E31',
+                        'bt-border': 'rgba(255, 255, 255, 0.08)',
+                        'whatsapp': '#25D366'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
+        
+        :root {
+            --font-titles: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body { 
+            font-family: var(--font-body); 
+            background-color: #0A0F1D; 
+            color: #F8FAFC; 
+            -webkit-font-smoothing: antialiased;
+            text-align: left;
+        }
+
+        h1, h2, h3, .font-title { 
+            font-family: var(--font-titles); 
+            letter-spacing: -0.04em; 
+        }
+
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .product-card { 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        .product-card:hover { 
+            transform: translateY(-8px); 
+            border-color: #2563EB; 
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.2) 100%); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center group transition">
+                <img src="./logoblue.png" alt="Bluetech Logo" class="h-10 md:h-12 w-auto object-contain block">
+            </a>
+            <div class="flex items-center gap-6 text-sm font-semibold">
+                <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
+                <a href="laptops.html" class="hover:text-bt-primary transition">Laptops</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="max-w-xl text-left">
+                <h1 class="text-4xl md:text-5xl font-black mb-4">
+                    Catálogo <span class="text-bt-primary italic">Celulares.</span>
+                </h1>
+                <div class="relative">
+                    <input type="text" id="phone-search" placeholder="Busca por marca o modelo..." 
+                           class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm text-white">
+                    <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                </div>
+            </div>
+            <div id="results-count" class="text-slate-500 text-xs font-bold uppercase tracking-widest pb-4">
+                Sincronizando inventario...
+            </div>
+        </div>
+
+        <div id="loader" class="text-center py-20">
+            <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-5xl"></i>
+            <p class="text-slate-500 text-xs font-bold uppercase tracking-widest mt-4">Cargando Celulares</p>
+        </div>
+        
+        <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 hidden">
+            </div>
+    </main>
+
+    <script>
+        // URL centralizada de tu Google Apps Script
+        const GAS_URL = 'https://script.google.com/macros/s/AKfycbx90xObT5MZ27r7tx5j6cA07hPqur8OVvxKtgzZbcKmxTwM8U4cSwEprpEsjZnawZ-K/exec';
+        let allPhones = [];
+
+        // Formato de moneda RD$
+        const formatCurrency = (amount) => {
+            return new Intl.NumberFormat('es-DO', { 
+                style: 'currency', 
+                currency: 'DOP', 
+                minimumFractionDigits: 0 
+            }).format(amount).replace('DOP', 'RD$');
+        };
+
+        async function fetchPhones() {
+            try {
+                // Solicitamos la hoja "Celulares" específicamente
+                const response = await fetch(GAS_URL + '?sheet=Celulares', { method: 'GET', redirect: 'follow' });
+                const data = await response.json();
+                
+                allPhones = data;
+                renderPhones(allPhones);
+                
+                document.getElementById('loader').classList.add('hidden');
+                document.getElementById('phone-container').classList.remove('hidden');
+            } catch (error) {
+                console.error("Error cargando inventario:", error);
+                document.getElementById('loader').innerHTML = `
+                    <p class="text-red-500 font-bold uppercase text-xs">Error de conexión con el inventario</p>
+                `;
+            }
+        }
+
+        function renderPhones(data) {
+            const container = document.getElementById('phone-container');
+            const countDisplay = document.getElementById('results-count');
+            countDisplay.innerText = `${data.length} Dispositivos disponibles`;
+
+            if (data.length === 0) {
+                container.innerHTML = '<div class="col-span-full text-center py-10 text-slate-500">No se encontraron resultados.</div>';
+                return;
+            }
+
+            container.innerHTML = data.map(phone => `
+                <div class="bg-bt-card rounded-[2.5rem] p-6 border border-bt-border product-card group animate__animated animate__fadeIn text-left">
+                    <div class="bg-bt-deep rounded-[2rem] h-52 mb-6 flex items-center justify-center overflow-hidden relative">
+                        <img src="${phone.imagen_url || 'https://via.placeholder.com/300?text=Smartphone'}" 
+                             class="max-h-36 object-contain group-hover:scale-110 transition duration-700 z-10" 
+                             alt="${phone.modelo}">
+                        <div class="absolute inset-0 bg-bt-primary/5 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-bt-primary text-[10px] font-black uppercase tracking-widest">${phone.marca}</span>
+                            <span class="bg-white/5 text-slate-400 text-[8px] px-2 py-0.5 rounded-full uppercase font-bold">${phone.clase || 'Smartphone'}</span>
+                        </div>
+                        <h3 class="font-bold text-xl text-white mb-4 line-clamp-1">${phone.modelo}</h3>
+                        
+                        <div class="grid grid-cols-2 gap-2 mb-6">
+                            <div class="bg-white/5 p-2 rounded-xl border border-white/5">
+                                <p class="text-[8px] text-slate-500 uppercase font-bold">Capacidad</p>
+                                <p class="text-xs font-bold text-white">${phone.gb || 'N/A'}</p>
+                            </div>
+                            <div class="bg-white/5 p-2 rounded-xl border border-white/5">
+                                <p class="text-[8px] text-slate-500 uppercase font-bold">RAM</p>
+                                <p class="text-xs font-bold text-white">${phone.ram || 'N/A'}</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-[9px] text-slate-500 uppercase font-bold">Precio Bluetech</p>
+                                <span class="text-white font-black text-xl">${formatCurrency(phone.precio)}</span>
+                            </div>
+                            <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Me%20interesa%20el%20${encodeURIComponent(phone.marca + ' ' + phone.modelo + ' (' + phone.gb + ')')}" 
+                               target="_blank"
+                               class="bg-bt-primary p-3.5 rounded-xl hover:bg-whatsapp transition shadow-lg shadow-blue-900/20 text-white">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Buscador en tiempo real
+        document.getElementById('phone-search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allPhones.filter(p => 
+                p.modelo.toLowerCase().includes(term) || 
+                p.marca.toLowerCase().includes(term)
+            );
+            renderPhones(filtered);
+        });
+
+        // Carga inicial
+        document.addEventListener('DOMContentLoaded', fetchPhones);
+    </script>
+</body>
+</html>
