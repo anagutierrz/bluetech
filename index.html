@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Bluetech | Hardware Pro & High-End Solutions</title>
+    <link rel="icon" type="image/png" href="logoblue.png">
     
-    <link rel="icon" type="image/png" href="LogoBlue.png">
-    
-    <meta name="description" content="Especialistas en hardware de alto rendimiento en República Dominicana. Laptops pro, gaming y celulares.">
-    <meta property="og:title" content="Bluetech | Equipa tu Victoria">
-    <meta property="og:image" content="LogoBlue.png">
+    <meta name="description" content="Tecnología de élite seleccionada para el flujo de trabajo profesional en República Dominicana.">
+    <meta property="og:title" content="Bluetech | Tu Próximo Nivel Empieza Aquí">
+    <meta property="og:image" content="logoblue.png">
+    <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -33,142 +34,167 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0A0F1D; color: #F8FAFC; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
+        
+        :root {
+            --font-titles: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body { 
+            font-family: var(--font-body); 
+            background-color: #0A0F1D; 
+            color: #F8FAFC; 
+            scroll-behavior: smooth; 
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .font-title { 
+            font-family: var(--font-titles); 
+            letter-spacing: -0.04em; 
+        }
+
+        .title-accent {
+            font-style: italic;
+            font-weight: 900;
+            display: inline-block;
+        }
+
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; }
         .bento-card:hover { transform: translateY(-8px); border-color: #2563EB; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
-        .-float { position: fixed; bottom: 30px; right: 30px; z-index: 100; transition: all 0.3s ease; }
-        .-float:hover { transform: scale(1.1) rotate(5deg); }
+        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 100; transition: all 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
+        .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.3) 100%); }
     </style>
 </head>
-<body class="antialiased">
+<body class="antialiased text-left">
 
-  <nav class="fixed w-full z-50 px-6 py-4">
+    <nav class="fixed w-full z-50 px-6 py-4">
         <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
             <a href="index.html" class="flex items-center group transition">
-                <img src="./logoblue.png" 
-                     alt="Bluetech Logo" 
-                     class="h-12 md:h-16 w-auto object-contain block drop-shadow-[0_0_8px_rgba(37,99,235,0.3)] transition-transform group-hover:scale-105"
-                     onerror="this.onerror=null; this.src='https://via.placeholder.com/200x80/0A0F1D/2563EB?text=BlueTech';">
+                <img src="./logoblue.png" alt="Bluetech Logo" class="h-12 md:h-16 w-auto object-contain block">
             </a>
             <div class="flex items-center gap-6 text-sm font-semibold">
                 <a href="laptops.html" class="hover:text-bt-primary transition">Laptops</a>
-                <button class="relative p-2 hover:text-bt-primary transition">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </button>
             </div>
         </div>
     </nav>
-    <main class="max-w-7xl mx-auto px-6 pt-32 pb-12">
-        <div class="mb-12">
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter">Equipa tu <span class="text-bt-primary italic">Victoria.</span></h1>
-            <p class="text-slate-500 mt-2 font-medium">Selecciona una categoría para comenzar.</p>
+
+    <main class="max-w-7xl mx-auto px-6 pt-48 pb-12">
+        <div class="mb-12 animate__animated animate__fadeIn text-left">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
+                Tu Próximo Nivel <br class="md:hidden">
+                <span class="text-bt-primary title-accent">Empieza Aquí.</span>
+            </h1>
+            <p class="text-slate-500 mt-6 font-medium max-w-2xl leading-relaxed text-lg">
+                Tecnología de élite seleccionada para el flujo de trabajo profesional. 
+                Sincronización de inventario en tiempo real.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-auto md:grid-rows-2 gap-6 h-auto md:h-[700px]">
-            <a href="laptops.html" class="md:col-span-2 md:row-span-2 bento-card glass rounded-[2.5rem] p-10 flex flex-col justify-end bg-gradient-to-t from-bt-primary/40 to-transparent group">
-                <div class="relative z-10">
-                    <span class="bg-white/10 px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Pro Series</span>
-                    <h3 class="text-5xl font-black mb-2 text-white">LAPTOPS</h3>
-                    <p class="text-slate-300 italic text-sm">Oficina, Estudio y Gaming de alto nivel.</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto">
+            <a href="laptops.html" class="md:col-span-1 bento-card glass rounded-[2.5rem] p-10 min-h-[500px] flex flex-col justify-end group">
+                <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left">
+                    <span class="bg-bt-primary px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block text-white">Top Ventas</span>
+                    <h2 class="text-4xl font-black mb-2 text-white uppercase">Laptops</h2>
+                    <p class="text-slate-300 italic text-sm">Gaming & Workstation.</p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition duration-700">
             </a>
 
-            <div class="md:col-span-2 glass rounded-[2.5rem] p-8 bento-card flex items-center justify-between group cursor-pointer bg-gradient-to-r from-bt-card to-bt-primary/10">
-                <div class="relative z-10">
-                    <h3 class="text-3xl font-black text-white">CELULARES</h3>
-                    <p class="text-slate-500 text-sm">Apple & Samsung Specialists.</p>
+            <a href="celulares.html" class="md:col-span-1 bento-card glass rounded-[2.5rem] p-10 min-h-[500px] flex flex-col justify-end group">
+                <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left">
+                    <h3 class="text-4xl font-black text-white uppercase">Celulares</h3>
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1 text-left">Apple & Samsung Professionals</p>
                 </div>
-                <i class="fa-solid fa-mobile-screen-button text-6xl text-bt-primary opacity-50 group-hover:opacity-100 transition"></i>
-            </div>
+            </a>
 
-            <div class="glass rounded-[2.5rem] p-8 bento-card flex flex-col items-center justify-center text-center group cursor-pointer border border-bt-border">
-                <div class="bg-bt-primary/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-bt-primary transition">
-                    <i class="fa-solid fa-keyboard text-2xl text-bt-primary group-hover:text-white"></i>
+            <a href="perifericos.html" class="md:col-span-1 bento-card glass rounded-[2.5rem] p-10 min-h-[500px] flex flex-col justify-end group">
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=600" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition duration-700">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left">
+                    <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Periféricos</h3>
+                    <p class="text-[10px] text-bt-primary font-bold">Teclados & Mouse MEC</p>
                 </div>
-                <h3 class="font-bold text-xs uppercase tracking-widest text-white">Periféricos</h3>
-            </div>
-
-            <div class="glass rounded-[2.5rem] p-8 bento-card flex flex-col items-center justify-center text-center group cursor-pointer border border-bt-border">
-                <div class="bg-bt-accent/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-bt-accent transition">
-                    <i class="fa-solid fa-headphones text-2xl text-bt-accent group-hover:text-bt-deep"></i>
-                </div>
-                <h3 class="font-bold text-xs uppercase tracking-widest text-white">Audio Pro</h3>
-            </div>
+            </a>
         </div>
     </main>
 
-    <section class="max-w-7xl mx-auto px-6 py-24 border-t border-white/5">
+    <section class="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 text-left">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
-                <h2 class="text-3xl font-extrabold tracking-tight text-white">Feedback de Clientes</h2>
+                <h2 class="text-3xl font-extrabold tracking-tight text-white italic">Feedback Certificado</h2>
                 <div class="flex items-center gap-2 mt-2">
                     <div class="flex text-bt-accent text-sm">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">4.9/5 en Google Business</p>
+                    <p class="text-slate-500 text-xs font-bold uppercase tracking-widest text-left">Google Business Verified</p>
                 </div>
             </div>
             <a href="#" class="text-bt-primary font-bold text-sm hover:underline italic">Ver todas las reseñas →</a>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-[2rem] border border-white/5 relative">
+            <div class="glass p-8 rounded-[2rem] border border-white/5 relative text-left">
                 <i class="fa-brands fa-google absolute top-8 right-8 text-slate-700 text-xl"></i>
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-bt-primary rounded-full flex items-center justify-center font-bold text-white">JD</div>
-                    <div>
-                        <h4 class="font-bold text-sm text-white">Juan Delgado</h4>
-                        <p class="text-[10px] text-slate-500 uppercase">Hace 2 días</p>
-                    </div>
+                    <div><h4 class="font-bold text-sm text-white">Juan Delgado</h4><p class="text-[10px] text-slate-500 uppercase">Hace 2 días</p></div>
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">"Excelente servicio y asesoría técnica. Compré una laptop para desarrollo y el rendimiento es increíble. Muy recomendados en RD."</p>
+                <p class="text-slate-400 text-sm leading-relaxed italic">"Asesoría de primera. Mi laptop para desarrollo vuela. Bluetech es calidad real en RD."</p>
             </div>
-
-            <div class="glass p-8 rounded-[2rem] border border-white/5 relative">
+            <div class="glass p-8 rounded-[2rem] border border-white/5 relative text-left">
                 <i class="fa-brands fa-google absolute top-8 right-8 text-slate-700 text-xl"></i>
-                <div class="flex items-center gap-4 mb-6">
+                <div class="flex items-center gap-4 mb-6 text-left">
                     <div class="w-12 h-12 bg-bt-accent rounded-full flex items-center justify-center font-bold text-bt-deep">MA</div>
-                    <div>
-                        <h4 class="font-bold text-sm text-white">María Almonte</h4>
-                        <p class="text-[10px] text-slate-500 uppercase">Hace 1 semana</p>
-                    </div>
+                    <div><h4 class="font-bold text-sm text-white">María Almonte</h4><p class="text-[10px] text-slate-500 uppercase">Hace 1 semana</p></div>
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">"El envío fue súper rápido a Santiago. El equipo llegó impecable y la atención por  es de primera. Mi nueva tienda favorita."</p>
+                <p class="text-slate-400 text-sm leading-relaxed italic">"El envío fue súper rápido a Santiago. El equipo llegó impecable."</p>
             </div>
-
-            <div class="glass p-8 rounded-[2rem] border border-white/5 relative">
+            <div class="glass p-8 rounded-[2rem] border border-white/5 relative text-left">
                 <i class="fa-brands fa-google absolute top-8 right-8 text-slate-700 text-xl"></i>
                 <div class="flex items-center gap-4 mb-6">
                     <div class="w-12 h-12 bg-slate-700 rounded-full flex items-center justify-center font-bold text-white">RC</div>
-                    <div>
-                        <h4 class="font-bold text-sm text-white">Ricardo Castro</h4>
-                        <p class="text-[10px] text-slate-500 uppercase">Hace 1 mes</p>
-                    </div>
+                    <div><h4 class="font-bold text-sm text-white">Ricardo Castro</h4><p class="text-[10px] text-slate-500 uppercase">Hace 1 mes</p></div>
                 </div>
-                <p class="text-slate-400 text-sm leading-relaxed">"Soporte técnico post-venta real. Me ayudaron con la configuración inicial de mi PC gaming sin costo adicional. Muy profesionales."</p>
+                <p class="text-slate-400 text-sm leading-relaxed italic">"Soporte técnico post-venta real. Muy profesionales en todo el proceso."</p>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/18494756590?text=Hola%20Bluetech!%20Vengo%20desde%20la%20web." target="_blank" class="whatsapp-float bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-white text-3xl">
+    <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Vengo%20desde%20la%20web." target="_blank" class="whatsapp-float bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-white text-3xl">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8">
+    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8 text-left">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-                <div class="flex flex-col items-center md:items-start">
-                    <img src="LogoBlue.png" alt="Bluetech Logo" class="h-6 w-auto mb-4 opacity-50 grayscale hover:grayscale-0 transition">
-                    <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">&copy; 2026 Bluetech Solutions RD</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <div class="flex flex-col items-center md:items-start text-left">
+                    <img src="logoblue.png" alt="Bluetech" class="h-10 w-auto mb-6">
+                    <p class="text-slate-500 text-sm max-w-xs italic">Expertos en hardware de alto rendimiento. Calidad y garantía local.</p>
                 </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4">Ubicación</h4>
+                    <p class="text-slate-400 text-sm">Plaza Samil, Local #XX<br>Santo Domingo, Rep. Dom.</p>
+                </div>
+                <div class="text-center md:text-left text-left">
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4 text-left">Síguenos</h4>
+                    <a href="https://instagram.com/bluetech014" target="_blank" class="flex items-center justify-center md:justify-start gap-3 text-slate-400 hover:text-bt-primary transition group">
+                        <i class="fa-brands fa-instagram text-xl"></i>
+                        <span class="text-sm font-semibold">@bluetech014</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+                <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">&copy; 2026 Bluetech Solutions RD</p>
                 <div class="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
                     <span>Desarrollado por</span>
-                    <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 text-bt-primary hover:text-white transition group">
-                        <span class="bg-bt-primary/10 px-2 py-0.5 rounded group-hover:bg-bt-primary transition font-black">Aura</span>
-                    </a>
+                    <a href="https://auragency.net/" target="_blank" class="flex items-center gap-1.5 text-bt-primary hover:text-white transition font-black">Aura</a>
                 </div>
             </div>
         </div>
