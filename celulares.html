@@ -31,64 +31,98 @@
         :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
         body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; -webkit-font-smoothing: antialiased; text-align: left; }
         h1, h2, h3, .font-title { font-family: var(--font-titles); letter-spacing: -0.04em; }
+        
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .list-row { transition: all 0.2s ease; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .list-row:last-child { border-bottom: none; }
-        .list-row:hover { background: rgba(37, 99, 235, 0.05); }
+        
+        /* Resaltado Pro de Filas */
+        .list-row { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            position: relative;
+        }
+
+        .list-row:hover { 
+            background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.01) 100%);
+            transform: translateY(-2px) scale(1.005);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .spec-pill {
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            color: #60a5fa;
+        }
+
+        .initial-tag {
+            color: #fbbf24;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
+        }
+
+        .category-pill { transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
+        .category-pill.active { background: #2563EB; border-color: #2563EB; color: white; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 px-6 py-4">
+    <nav class="fixed w-full z-50 px-6 py-4 text-left">
         <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center text-left">
-            <a href="index.html" class="flex items-center group transition">
+            <a href="index.html" class="flex items-center group transition text-left">
                 <img src="./logoblue.png" alt="Bluetech Logo" class="h-10 md:h-12 w-auto object-contain block">
             </a>
             <div class="flex items-center gap-6 text-sm font-semibold">
                 <a href="index.html" class="hover:text-bt-primary transition text-white">Inicio</a>
+                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-40 pb-20">
-        <div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div class="max-w-xl text-left">
-                <h1 class="text-4xl md:text-5xl font-black mb-4">
-                    Listado <span class="text-bt-primary italic text-left">Celulares.</span>
-                </h1>
-                <div class="relative">
+        <div class="mb-10 text-left">
+            <h1 class="text-4xl md:text-5xl font-black mb-4">
+                Listado <span class="text-bt-primary italic">Celulares.</span>
+            </h1>
+            
+            <div class="flex flex-col md:flex-row gap-6 md:items-center justify-between">
+                <div class="relative max-w-xl w-full">
                     <input type="text" id="phone-search" placeholder="Busca marca o modelo..." 
-                           class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm text-white text-left">
+                           class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm text-white">
                     <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
                 </div>
+                <div id="results-count" class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                    Sincronizando...
+                </div>
             </div>
-            <div id="results-count" class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] pb-2 text-left">
-                Sincronizando...
+
+            <div id="brand-filters" class="flex flex-wrap gap-2 mt-8 overflow-x-auto pb-2">
+                <button class="category-pill active bg-white/5 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest" data-brand="all">Todas las Marcas</button>
             </div>
         </div>
 
         <div class="glass rounded-[2rem] overflow-hidden border border-bt-border animate__animated animate__fadeIn">
-            <div class="hidden md:grid grid-cols-6 bg-white/5 p-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 border-b border-bt-border text-left">
+            <div class="hidden md:grid grid-cols-7 bg-white/5 p-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 border-b border-bt-border text-left">
                 <div>Marca</div>
                 <div>Modelo</div>
-                <div>GB</div>
-                <div>RAM</div>
-                <div>Clase</div>
-                <div class="text-right">Precio / WhatsApp</div>
+                <div>Especificaciones</div>
+                <div>Condición</div>
+                <div>Inversión Total</div>
+                <div>Inicial</div>
+                <div class="text-right">Acción</div>
             </div>
 
             <div id="loader" class="text-center py-20">
                 <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-3xl"></i>
             </div>
             
-            <div id="phone-list-container" class="hidden">
-                </div>
+            <div id="phone-list-container" class="hidden"></div>
         </div>
     </main>
 
     <script>
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbx90xObT5MZ27r7tx5j6cA07hPqur8OVvxKtgzZbcKmxTwM8U4cSwEprpEsjZnawZ-K/exec';
         let allPhones = [];
+        let currentBrand = 'all';
 
         const formatCurrency = (amount) => {
             return new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP', minimumFractionDigits: 0 }).format(amount).replace('DOP', 'RD$');
@@ -99,6 +133,7 @@
                 const response = await fetch(GAS_URL + '?sheet=Celulares', { method: 'GET', redirect: 'follow' });
                 const data = await response.json();
                 allPhones = data;
+                generateBrandFilters(data);
                 renderPhones(allPhones);
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('phone-list-container').classList.remove('hidden');
@@ -108,64 +143,91 @@
             }
         }
 
+        function generateBrandFilters(data) {
+            const filterContainer = document.getElementById('brand-filters');
+            const brands = [...new Set(data.map(item => item.marca).filter(Boolean))];
+            
+            brands.forEach(brand => {
+                const button = document.createElement('button');
+                button.className = 'category-pill bg-white/5 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest';
+                button.innerText = brand;
+                button.dataset.brand = brand;
+                button.onclick = () => filterByBrand(brand, button);
+                filterContainer.appendChild(button);
+            });
+        }
+
+        function filterByBrand(brand, element) {
+            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+            element.classList.add('active');
+            currentBrand = brand;
+            applyFilters();
+        }
+
+        document.querySelector('[data-brand="all"]').onclick = function() {
+            filterByBrand('all', this);
+        };
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('phone-search').value.toLowerCase();
+            const filtered = allPhones.filter(p => {
+                const matchesSearch = p.modelo.toLowerCase().includes(searchTerm) || p.marca.toLowerCase().includes(searchTerm);
+                const matchesBrand = currentBrand === 'all' || p.marca === currentBrand;
+                return matchesSearch && matchesBrand;
+            });
+            renderPhones(filtered);
+        }
+
         function renderPhones(data) {
             const container = document.getElementById('phone-list-container');
             const countDisplay = document.getElementById('results-count');
             countDisplay.innerText = `${data.length} Unidades en inventario`;
 
             if (data.length === 0) {
-                container.innerHTML = '<div class="p-10 text-center text-slate-500 text-sm">No se encontraron equipos.</div>';
+                container.innerHTML = '<div class="p-10 text-center text-slate-500 text-sm italic">No se encontraron equipos.</div>';
                 return;
             }
 
             container.innerHTML = data.map(phone => `
-                <div class="list-row p-5 md:p-6 flex flex-col md:grid md:grid-cols-6 gap-3 md:gap-0 md:items-center text-left">
-                    <div class="flex justify-between items-center md:block">
-                        <div class="text-bt-primary font-black text-[10px] uppercase tracking-wider md:mb-1">${phone.marca}</div>
-                        <div class="md:hidden text-white font-black text-lg">${formatCurrency(phone.precio)}</div>
-                    </div>
+                <div class="list-row p-6 flex flex-col md:grid md:grid-cols-7 gap-4 md:gap-0 md:items-center text-left rounded-xl">
+                    <div class="text-bt-primary font-black text-[10px] uppercase tracking-wider opacity-70">${phone.marca}</div>
                     
-                    <div class="text-white font-bold text-base md:text-sm -mt-2 md:mt-0">${phone.modelo}</div>
+                    <div class="text-white font-black text-xl md:text-sm uppercase tracking-tighter">${phone.modelo}</div>
                     
-                    <div class="flex gap-4 md:block">
-                        <div class="flex flex-col md:block">
-                             <span class="md:hidden text-[8px] text-slate-500 uppercase font-black tracking-widest">Capacidad</span>
-                             <span class="text-slate-300 text-sm font-medium">${phone.gb || '-'}</span>
-                        </div>
-                        <div class="flex flex-col md:block">
-                             <span class="md:hidden text-[8px] text-slate-500 uppercase font-black tracking-widest">Memoria</span>
-                             <span class="text-slate-300 text-sm font-medium">${phone.ram || '-'}</span>
-                        </div>
+                    <div class="flex gap-2">
+                        <span class="spec-pill text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.gb || '-'}</span>
+                        <span class="bg-white/5 border border-white/10 text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.ram || '-'}</span>
                     </div>
 
-                    <div class="hidden md:block">
-                        <span class="bg-white/5 text-slate-500 text-[9px] px-2 py-1 rounded uppercase font-bold border border-white/5">
+                    <div>
+                        <span class="bg-bt-card text-slate-500 text-[9px] px-3 py-1 rounded uppercase font-black border border-bt-border tracking-widest">
                             ${phone.clase || 'Smartphone'}
                         </span>
                     </div>
 
-                    <div class="flex items-center justify-between md:justify-end gap-4 mt-2 md:mt-0 col-span-2">
-                        <span class="hidden md:block text-white font-black text-lg">${formatCurrency(phone.precio)}</span>
-                        <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Deseo%20ordenar:%20${encodeURIComponent(phone.marca + ' ' + phone.modelo)}" 
+                    <div class="price-tag">
+                        <span class="md:hidden text-[8px] text-slate-500 uppercase font-black block mb-1">Inversión Total</span>
+                        <span class="text-white font-black text-2xl md:text-lg tracking-tighter">${formatCurrency(phone.precio)}</span>
+                    </div>
+
+                    <div class="initial-tag">
+                        <span class="md:hidden text-[8px] text-orange-500/70 uppercase font-black block mb-1 tracking-widest">Inicial desde</span>
+                        <span class="font-black text-lg md:text-sm italic tracking-tighter">${phone.inicial ? formatCurrency(phone.inicial) : 'Consultar'}</span>
+                    </div>
+
+                    <div class="flex md:justify-end">
+                        <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Me%20interesa:%20${encodeURIComponent(phone.marca + ' ' + phone.modelo)}" 
                            target="_blank"
-                           class="flex-1 md:flex-none bg-bt-primary text-white py-3 md:p-2.5 rounded-xl md:rounded-lg text-center text-xs font-bold md:bg-bt-primary/10 md:text-bt-primary hover:bg-bt-primary hover:text-white transition group-hover:scale-105">
-                            <span class="md:hidden"><i class="fa-brands fa-whatsapp mr-2"></i>Ordenar por WhatsApp</span>
-                            <i class="hidden md:block fa-brands fa-whatsapp text-lg"></i>
+                           class="w-full md:w-auto bg-bt-primary text-white py-4 md:py-2.5 px-6 rounded-xl md:rounded-lg text-center text-xs font-black hover:bg-white hover:text-bt-primary transition-all duration-300 flex items-center justify-center gap-2 shadow-xl shadow-bt-primary/10">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span class="md:hidden">Consultar ahora</span>
                         </a>
                     </div>
                 </div>
             `).join('');
         }
 
-        document.getElementById('phone-search').addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
-            const filtered = allPhones.filter(p => 
-                p.modelo.toLowerCase().includes(term) || 
-                p.marca.toLowerCase().includes(term)
-            );
-            renderPhones(filtered);
-        });
-
+        document.getElementById('phone-search').addEventListener('input', applyFilters);
         document.addEventListener('DOMContentLoaded', fetchPhones);
     </script>
 </body>
