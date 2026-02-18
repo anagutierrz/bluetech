@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventario Tablets | Bluetech RD</title>
+    
+    <title>Inventario de Tablets | Bluetech RD - iPad & Android Pro</title>
+    <meta name="description" content="Catálogo de tablets en República Dominicana. iPads, Samsung Galaxy Tab y tablets Pro para diseño y productividad con garantía Bluetech.">
+    <meta name="keywords" content="iPads RD, Samsung Tab Santo Domingo, Tablets para diseño, Bluetech Tablets, tablets baratas rd">
+    <link rel="canonical" href="https://bluetech.com.do/tablets.html">
+
+    <meta property="og:title" content="Inventario de Tablets | Bluetech RD">
+    <meta property="og:description" content="Productividad y diseño en tus manos. Tablets de alta gama con garantía local.">
+    <meta property="og:image" content="logoblancoblue.png">
+    <meta property="og:url" content="https://bluetech.com.do/tablets.html">
+
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -29,85 +39,75 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
         :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
-        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; -webkit-font-smoothing: antialiased; text-align: left; }
-        h1, h2, h3, .font-title { font-family: var(--font-titles); letter-spacing: -0.04em; }
-        
+        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; text-align: left; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        h1, h2, h3 { font-family: var(--font-titles); letter-spacing: -0.04em; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        .list-row { 
-            transition: all 0.3s ease; 
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 10px;
-        }
+        /* SIDEBAR MÓVIL UNIFICADO */
+        #mobile-sidebar { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; }
+        #mobile-sidebar.active { right: 0; }
+        #sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1500; }
+        #sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+        body.overflow-hidden { overflow: hidden; }
 
-        .list-row:hover { 
-            background: rgba(37, 99, 235, 0.12);
-            border-color: rgba(37, 99, 235, 0.5);
-            transform: translateY(-2px);
-        }
-
+        .list-row { transition: all 0.3s ease; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); margin-bottom: 10px; }
+        .list-row:hover { background: rgba(37, 99, 235, 0.12); border-color: rgba(37, 99, 235, 0.5); transform: translateY(-2px); }
         .spec-pill-storage { background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(37, 99, 235, 0.4); color: #93c5fd; }
         .spec-pill-ram { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; }
         .spec-pill-inches { background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.2); color: #fbbf24; }
-        
         .category-pill { transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
         .category-pill.active { background: #2563EB; border-color: #2563EB; color: white; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased">
-<nav class="fixed w-full z-50 px-4 md:px-6 py-3"> <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-8 py-3 flex justify-between items-center relative"> <a href="index.html" class="flex items-center group transition">
-            <img src="./logoblancoblue.png" alt="Blue Tech Logo" 
-                 class="h-16 md:h-24 w-auto object-contain block transition-transform duration-500 group-hover:scale-105">
-        </a>
 
-        <div class="hidden lg:flex items-center gap-8 text-[12px] font-black uppercase tracking-[0.2em]">
-            <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
-            <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
-            <a href="accesorios.html" class="hover:text-bt-primary transition text-white">Accesorios</a>
-            <a href="gaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
-            <a href="tablets.html" class="hover:text-bt-primary transition text-white text-left">Tablets</a>
-            <a href="https://wa.me/1809XXXXXXX" target="_blank" 
-               class="bg-whatsapp text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-whatsapp/20 transition duration-300">
-                <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>WhatsApp
-            </a>
+    <div id="sidebar-overlay"></div>
+
+    <nav class="fixed w-full z-[160] px-4 md:px-6 py-4 text-left">
+        <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center relative">
+            <a href="index.html"><img src="./logoblancoblue.png" alt="Logo" class="h-10 md:h-14 w-auto"></a>
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white">
+                <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
+                <a href="laptops.html" class="hover:text-bt-primary transition">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition">Celulares</a>
+                <a href="mundogaming.html" class="hover:text-bt-primary transition">Gaming</a>
+                <a href="tablets.html" class="text-bt-primary transition">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" target="_blank" class="bg-whatsapp px-5 py-2.5 rounded-full font-bold">WhatsApp</a>
+            </div>
+            <button id="open-sidebar" class="lg:hidden text-white text-3xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
         </div>
+    </nav>
 
-        <button id="menu-toggle" class="lg:hidden text-white text-4xl p-2">
-            <i class="fa-solid fa-bars-staggered"></i>
-        </button>
+    <div id="mobile-sidebar" class="glass p-10 flex flex-col gap-6 lg:hidden text-left">
+        <div class="flex justify-between items-center mb-10 border-b border-white/5 pb-6">
+            <img src="./logoblancoblue.png" alt="Logo" class="h-8 w-auto">
+            <button id="close-sidebar" class="text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-xl font-black uppercase tracking-tighter text-white">
+            <a href="index.html">Inicio</a>
+            <a href="laptops.html">Laptops</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="mundogaming.html">Mundo Gaming</a>
+            <a href="tablets.html" class="text-bt-primary">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-center py-4 rounded-2xl mt-6 text-sm">WhatsApp Business</a>
+        </div>
     </div>
 
-    <div id="mobile-menu" class="absolute top-28 left-4 right-4 glass rounded-[2.5rem] p-10 flex flex-col gap-8 lg:hidden shadow-2xl">
-        <a href="laptops.html" class="text-2xl font-black uppercase tracking-tighter text-white">Laptops</a>
-        <a href="celulares.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Celulares</a>
-        <a href="accesorios.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Accesorios</a>
-        <a href="gaming.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Mundo Gaming</a>
-        <a href="tablets.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Tablets</a>
-        <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-6 rounded-3xl font-black uppercase tracking-widest mt-4">
-            <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
-        </a>
-    </div>
-</nav>
-
-    <main class="max-w-7xl mx-auto px-4 md:px-6 pt-40 md:pt-48 pb-20">
-        <div class="mb-10 text-left">
-            <h1 class="text-4xl md:text-5xl font-black mb-4">
-                Listado <span class="text-bt-primary italic">Tablets.</span>
-            </h1>
-            
-            <div class="flex flex-col md:flex-row gap-6 md:items-center justify-between text-left">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 pt-36 md:pt-48 pb-20 text-left">
+        <div class="mb-10">
+            <h1 class="text-4xl md:text-5xl font-black mb-4 uppercase">Listado <span class="text-bt-primary italic">Tablets.</span></h1>
+            <div class="flex flex-col md:flex-row gap-6 md:items-center justify-between">
                 <div class="relative max-w-xl w-full">
                     <input type="text" id="tablet-search" placeholder="Busca por modelo o marca..." 
                            class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm text-white">
                     <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 </div>
-                <div id="results-count" class="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
-                    Sincronizando...
-                </div>
+                <div id="results-count" class="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">Sincronizando...</div>
             </div>
-
-            <div id="brand-filters" class="flex flex-wrap gap-2 mt-8 overflow-x-auto pb-2 text-left">
+            <div id="brand-filters" class="flex flex-wrap gap-2 mt-8 overflow-x-auto pb-2 no-scrollbar">
                 <button class="category-pill active bg-white/5 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest" data-brand="all">Todas las Marcas</button>
             </div>
         </div>
@@ -121,20 +121,41 @@
                 <div class="col-span-1 text-center">Precio RD$</div>
                 <div class="col-span-1 text-right">WhatsApp</div>
             </div>
-
-            <div id="loader" class="text-center py-20">
-                <i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-3xl"></i>
-            </div>
-            
+            <div id="loader" class="text-center py-20"><i class="fa-solid fa-circle-notch animate-spin text-bt-primary text-3xl"></i></div>
             <div id="tablet-list-container" class="hidden"></div>
         </div>
     </main>
 
+    <footer class="bg-bt-deep border-t border-white/5 py-12 text-left">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest italic text-left">&copy; 2026 Bluetech Solutions RD</p>
+            <div class="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest italic text-left">
+                <span class="text-slate-500 text-left">Powered by</span>
+                <a href="https://auragency.net/" target="_blank" class="text-bt-primary hover:text-white transition-all text-left">Aura Agency</a>
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Sincronización con la pestaña "Tablet"
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbx90xObT5MZ27r7tx5j6cA07hPqur8OVvxKtgzZbcKmxTwM8U4cSwEprpEsjZnawZ-K/exec';
         let allTablets = [];
         let currentBrand = 'all';
+
+        // SIDEBAR LOGIC
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
 
         const formatCurrency = (amount) => {
             return new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP', minimumFractionDigits: 0 }).format(amount).replace('DOP', 'RD$');
@@ -142,17 +163,15 @@
 
         async function fetchTablets() {
             try {
-                // Se conecta específicamente a la pestaña "Tablet"
                 const response = await fetch(GAS_URL + '?sheet=Tablet', { method: 'GET', redirect: 'follow' });
-                const data = await response.json();
-                allTablets = data;
-                generateBrandFilters(data);
+                allTablets = await response.json();
+                generateBrandFilters(allTablets);
                 renderTablets(allTablets);
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('tablet-list-container').classList.remove('hidden');
-            } catch (error) {
-                console.error("Error al cargar Tablets:", error);
-                document.getElementById('loader').innerHTML = '<p class="text-red-500 font-bold">Error de conexión con Sheets</p>';
+            } catch (error) { 
+                console.error("Error:", error); 
+                document.getElementById('loader').innerHTML = '<p class="text-red-500 font-bold">Error de sincronización</p>';
             }
         }
 
@@ -192,37 +211,27 @@
             countDisplay.innerText = `${data.length} Unidades disponibles`;
 
             container.innerHTML = data.map(tablet => `
-                <div class="list-row p-6 flex flex-col md:grid md:grid-cols-6 gap-4 md:gap-4 md:items-center text-left rounded-xl">
-                    
-                    <div class="flex flex-col">
+                <div class="list-row p-6 flex flex-col md:grid md:grid-cols-6 gap-4 md:items-center text-left rounded-xl">
+                    <div class="flex flex-col text-left">
                         <span class="text-bt-primary font-black text-[9px] uppercase tracking-widest mb-1">${tablet.marca || 'Tablet'}</span>
                         <div class="text-white font-black text-xl md:text-sm uppercase tracking-tighter">${tablet.modelo}</div>
                     </div>
-                    
-                    <div class="flex gap-2 md:justify-center">
+                    <div class="flex gap-2 md:justify-center text-left">
                         <span class="spec-pill-storage text-[10px] font-bold px-3 py-1.5 rounded-lg">${tablet.almacenamiento || tablet.gb || '-'}</span>
                         <span class="spec-pill-ram text-[10px] font-bold px-3 py-1.5 rounded-lg">${tablet.ram || '-'}</span>
                     </div>
-
-                    <div class="md:text-center">
+                    <div class="md:text-center text-left">
                         <span class="md:hidden text-[7px] text-slate-500 uppercase font-black mb-1 block">Tamaño</span>
-                        <span class="spec-pill-inches text-[10px] font-bold px-3 py-1.5 rounded-lg inline-block">
-                            ${tablet.pulgadas || '-'}''
-                        </span>
+                        <span class="spec-pill-inches text-[10px] font-bold px-3 py-1.5 rounded-lg inline-block">${tablet.pulgadas || '-'}''</span>
                     </div>
-
-                    <div class="md:text-center">
-                        <span class="bg-bt-card text-slate-300 text-[9px] px-3 py-1 rounded uppercase font-black border border-bt-border">
-                            ${tablet.condicion || tablet.clase || 'Excelente'}
-                        </span>
+                    <div class="md:text-center text-left">
+                        <span class="bg-bt-card text-slate-300 text-[9px] px-3 py-1 rounded uppercase font-black border border-bt-border">${tablet.condicion || tablet.clase || 'Excelente'}</span>
                     </div>
-
-                    <div class="md:text-center">
-                        <span class="md:hidden text-[8px] text-slate-500 uppercase font-black block mb-1 tracking-widest">Inversión Final</span>
+                    <div class="md:text-center text-left">
+                        <span class="md:hidden text-[8px] text-slate-500 uppercase font-black block mb-1 tracking-widest text-left">Inversión Final</span>
                         <span class="text-white font-black text-2xl md:text-lg tracking-tighter">${formatCurrency(tablet.precio)}</span>
                     </div>
-
-                    <div class="flex md:justify-end">
+                    <div class="flex md:justify-end text-left">
                         <a href="https://wa.me/1809XXXXXXX?text=Hola!%20Me%20interesa%20la%20tablet%20${encodeURIComponent(tablet.modelo)}" 
                            target="_blank"
                            class="w-full md:w-auto bg-bt-primary text-white py-4 md:py-2 px-6 rounded-xl md:rounded-lg text-center text-xs font-black hover:bg-white hover:text-bt-primary transition-all duration-300">
