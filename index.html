@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Bluetech | Hardware Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bluetech | Hardware Pro & High-End Solutions</title>
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,127 +27,123 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0A0F1D; color: #F8FAFC; overflow-x: hidden; }
-        h1, h2, h3 { font-family: 'Outfit', sans-serif; letter-spacing: -0.04em; }
-        
-        /* ESTA ES LA SOLUCIÓN DEFINITIVA AL BLOQUEO */
-        .nav-container-fixed {
-            pointer-events: none; /* Hace que el contenedor del menú sea invisible a los clics */
-        }
-        .nav-container-fixed * {
-            pointer-events: auto; /* Solo los botones y links dentro responden al clic */
-        }
-
-        #menu-box {
-            display: none;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.3s ease;
-        }
-        #menu-box.show {
-            display: flex;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .glass { background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .bento-card { display: block; position: relative; border-radius: 2rem; overflow: hidden; aspect-ratio: 16/10; z-index: 50; }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 500; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
+        :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
+        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--font-titles); letter-spacing: -0.04em; }
+        .glass { background: rgba(10, 15, 29, 0.75); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .bento-card { display: block; position: relative; overflow: hidden; border-radius: 2.5rem; transition: all 0.4s; }
+        .bento-card:hover { transform: translateY(-5px); border-color: #2563EB; }
+        .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.2) 100%); }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
     </style>
 </head>
 <body class="antialiased text-left">
 
     <a href="https://wa.me/1809XXXXXXX" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
-    <div class="nav-container-fixed fixed w-full z-[1000] px-4 py-4">
+    <nav class="fixed w-full z-[160] px-4 md:px-6 py-4">
         <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center">
-            <a href="index.html"><img src="./logoblancoblue.png" class="h-10 w-auto"></a>
-            <button id="btn-open-menu" class="lg:hidden text-white text-3xl p-2"><i class="fa-solid fa-bars-staggered"></i></button>
-            <div class="hidden lg:flex gap-8 text-[11px] font-black uppercase tracking-widest text-white text-left">
-                <a href="laptops.html">Laptops</a>
-                <a href="celulares.html">Celulares</a>
-                <a href="mundogaming.html">Mundo Gaming</a>
-                <a href="tablets.html">Tablets</a>
+            <a href="index.html">
+                <img src="./logoblancoblue.png" alt="Logo" class="h-10 md:h-14 w-auto">
+            </a>
+            <div class="flex items-center gap-4 md:gap-8 text-[9px] md:text-[11px] font-black uppercase tracking-widest">
+                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
+                <a href="mundogaming.html" class="hover:text-bt-primary transition text-white">Gaming</a>
+                <a href="tablets.html" class="hover:text-bt-primary transition text-white">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" class="hidden md:block bg-whatsapp text-white px-5 py-2 rounded-full font-bold">WhatsApp</a>
             </div>
         </div>
+    </nav>
 
-        <div id="menu-box" class="glass rounded-[2rem] mt-4 p-8 flex-col gap-5 lg:hidden">
-            <a href="laptops.html" class="text-xl font-black uppercase text-white">Laptops</a>
-            <a href="celulares.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white">Celulares</a>
-            <a href="mundogaming.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white">Mundo Gaming</a>
-            <a href="tablets.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white text-left">Tablets</a>
-            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-4 rounded-xl font-black uppercase mt-2">WhatsApp</a>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 pt-32 md:pt-44">
-        <div class="relative overflow-hidden rounded-[2.5rem] glass h-[400px] flex flex-col md:flex-row border border-white/5 text-left">
-            <div class="w-full md:w-1/2 p-10 flex flex-col justify-center bg-gradient-to-r from-bt-deep to-transparent">
-                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase px-3 py-1 rounded-full w-fit mb-4">Temporada 2026</span>
-                <h2 class="text-4xl md:text-6xl font-black text-white leading-none mb-4 uppercase italic">Viste tu <br><span class="text-bt-primary">Workspace.</span></h2>
-                <a href="https://wa.me/1809XXXXXXX" class="bg-bt-primary text-white text-[11px] font-black uppercase px-8 py-4 rounded-xl w-fit">Ver Ofertas</a>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-44">
+        <div class="relative overflow-hidden rounded-[2.5rem] glass h-[450px] md:h-[480px] flex flex-col md:flex-row border border-white/5">
+            <div class="w-full md:w-1/2 relative z-10 h-full flex flex-col justify-center px-10 md:px-16 bg-gradient-to-r from-bt-deep via-bt-deep/80 to-transparent">
+                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full w-fit mb-4 text-left">Temporada 2026</span>
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-[0.9] mb-4 uppercase italic text-left text-left">Viste tu <br><span class="text-bt-primary">Workspace.</span></h2>
+                <p class="text-slate-400 text-sm md:text-lg font-medium max-w-md mb-8 italic text-left">Equipos de élite seleccionados para profesionales.</p>
+                <a href="https://wa.me/1809XXXXXXX" class="bg-bt-primary text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-xl w-fit shadow-xl shadow-bt-primary/20 transition">Ver Ofertas</a>
             </div>
-            <div class="w-full md:w-1/2 h-full opacity-60">
+            <div class="w-full md:w-1/2 h-full relative">
                 <div class="swiper mySwiper h-full">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1000" class="w-full h-full object-cover"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1000" class="w-full h-full object-cover opacity-60"></div>
+                        <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=1000" class="w-full h-full object-cover opacity-60"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <main class="max-w-7xl mx-auto px-6 pt-16 pb-12 text-left">
-        <h1 class="text-4xl md:text-7xl font-black text-white uppercase italic mb-10">Tu Próximo Nivel <br><span class="text-bt-primary">Empieza Aquí.</span></h1>
+    <main class="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-12 text-left">
+        <div class="mb-12"><h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase">Tu Próximo Nivel <br><span class="text-bt-primary italic">Empieza Aquí.</span></h1></div>
         <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
-            <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card p-8 bg-bt-primary/10">
+            <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card p-8 md:p-10 min-h-[350px] md:min-h-[450px] border border-white/5 bg-bt-primary/5">
                 <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-40">
-                <div class="relative z-10 text-left"><h2 class="text-3xl md:text-5xl font-black text-white uppercase italic">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase">Work Pro & Gaming</p></div>
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left"><h2 class="text-4xl md:text-6xl font-black text-white uppercase">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase tracking-widest text-left">Work Pro & Gaming</p></div>
             </a>
-            <a href="celulares.html" class="md:col-span-3 bento-card p-8 bg-white/5">
+            <a href="celulares.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30">
-                <div class="relative z-10 text-left"><h3 class="text-2xl font-black text-white uppercase italic">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase text-left text-left">Apple & Samsung Pro</p></div>
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left"><h3 class="text-3xl md:text-4xl font-black text-white uppercase text-left">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left">Apple & Samsung Pro</p></div>
             </a>
-            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 bg-bt-accent/10">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
-                <div class="relative z-10 text-left"><h3 class="text-2xl font-black text-bt-accent uppercase italic">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase text-left">Setup & Consolas</p></div>
+            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-bt-accent/5 text-left">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left text-left">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left text-left"><h3 class="text-3xl md:text-4xl font-black text-bt-accent uppercase">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase tracking-widest text-left text-left">Setup & Consolas</p></div>
             </a>
-            <a href="tablets.html" class="md:col-span-3 bento-card p-8 bg-white/5 text-left text-left">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
-                <div class="relative z-10 text-left"><h3 class="text-2xl font-black text-white uppercase italic">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase text-left text-left">iPad & Pro Series</p></div>
+            <a href="tablets.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left text-left text-left">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left text-left text-left">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10 text-left text-left text-left"><h3 class="text-3xl md:text-4xl font-black text-white uppercase text-left text-left">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left text-left text-left">iPad & Pro Series</p></div>
             </a>
         </div>
     </main>
 
     <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5 text-left">
-        <h2 class="text-3xl md:text-5xl font-black text-white uppercase italic mb-10 text-left">Opiniones <span class="text-bt-primary">Clientes</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left text-left">
-            <div class="glass p-8 rounded-[2rem] border-t-4 border-t-purple-500"><p class="text-slate-300 italic mb-6">"Excelente servicio y atención."</p><h4 class="font-black text-sm uppercase">Alejandro Medina</h4></div>
-            <div class="glass p-8 rounded-[2rem] border-t-4 border-t-bt-primary"><p class="text-slate-300 italic mb-6">"Súper responsables con la garantía."</p><h4 class="font-black text-sm uppercase">Carlos Peralta</h4></div>
-            <div class="glass p-8 rounded-[2rem] border-t-4 border-t-bt-accent text-left"><p class="text-slate-300 italic mb-6">"La mejor tienda en SD."</p><h4 class="font-black text-sm uppercase">Laura Rodríguez</h4></div>
+        <h2 class="text-4xl md:text-5xl font-black text-white uppercase italic mb-12">Opiniones de <span class="text-bt-primary">Clientes</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-purple-500">
+                <p class="text-slate-300 italic mb-8">"Excelente servicio y atención. Compré mi laptop aquí y la asesoría fue impecable."</p>
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center font-black">AM</div>
+                    <div><h4 class="font-black text-sm uppercase">Alejandro Medina</h4><span class="text-purple-400 text-[9px] font-black uppercase text-left">Local Guide</span></div>
+                </div>
+            </div>
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-primary">
+                <p class="text-slate-300 italic mb-8">"Súper responsables con la garantía y la entrega. El equipo llegó a Santiago rápido."</p>
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 bg-bt-primary rounded-full flex items-center justify-center font-black">CP</div>
+                    <div><h4 class="font-black text-sm uppercase">Carlos Peralta</h4><span class="text-bt-primary text-[9px] font-black uppercase text-left text-left">Cliente Verificado</span></div>
+                </div>
+            </div>
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-accent">
+                <p class="text-slate-300 italic mb-8 text-left">"La mejor tienda de tecnología en SD. Precios competitivos y un trato profesional."</p>
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-black text-bt-deep text-left">LR</div>
+                    <div><h4 class="font-black text-sm uppercase text-left">Laura Rodríguez</h4><span class="text-bt-accent text-[9px] font-black uppercase text-left">Local Guide</span></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-bt-deep border-t border-white/5 py-10 text-left">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center text-left">
-            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest">&copy; 2026 Bluetech RD</p>
-            <p class="text-[9px] font-black uppercase text-slate-500">By <a href="https://auragency.net/" class="text-bt-primary">Aura Agency</a></p>
+    <footer class="bg-bt-deep border-t border-white/5 py-12 text-left">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest italic">&copy; 2026 Bluetech Solutions RD</p>
+            <div class="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest italic text-left">
+                <span class="text-slate-500 text-left">Powered by</span>
+                <a href="https://auragency.net/" target="_blank" class="text-bt-primary hover:text-white transition-all text-left">Aura Agency</a>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        const btn = document.getElementById('btn-open-menu');
-        const menu = document.getElementById('menu-box');
-
-        btn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            menu.classList.toggle('show');
-        });
-
-        document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target)) menu.classList.remove('show');
-        });
+        new Swiper(".mySwiper", { effect: "fade", loop: true, autoplay: { delay: 4500 } });
     </script>
+</body>
+</html>
 </body>
 </html>
