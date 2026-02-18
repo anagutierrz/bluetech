@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mundo Gaming | Bluetech Pro Gear</title>
+    
+    <title>Mundo Gaming | Bluetech RD - Setup, Teclados y Periféricos</title>
+    <meta name="description" content="Domina el juego con el mejor arsenal gaming en República Dominicana. Teclados mecánicos, headphones, mouse y bocinas con garantía Bluetech.">
+    <meta name="keywords" content="Gaming RD, Teclados mecánicos Santo Domingo, Audífonos Gamer RD, Periféricos Gaming, Bluetech Mundo Gaming">
+    <link rel="canonical" href="https://bluetech.com.do/mundogaming.html">
+
+    <meta property="og:title" content="Mundo Gaming | Bluetech RD - Tu Arsenal Pro">
+    <meta property="og:description" content="Equípate con lo mejor. Periféricos de alta gama con envíos a todo el país.">
+    <meta property="og:image" content="logoblancoblue.png">
+    <meta property="og:url" content="https://bluetech.com.do/mundogaming.html">
+
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,54 +38,61 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
         :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
-        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; -webkit-font-smoothing: antialiased; }
+        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
         h1, h2, h3 { font-family: var(--font-titles); letter-spacing: -0.04em; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* SIDEBAR MÓVIL UNIFICADO */
+        #mobile-sidebar { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; }
+        #mobile-sidebar.active { right: 0; }
+        #sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1500; }
+        #sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+        body.overflow-hidden { overflow: hidden; }
+
         .filter-btn { border: 1px solid rgba(255,255,255,0.08); transition: all 0.3s ease; }
         .filter-btn.active { background-color: #2563EB; color: white; border-color: #2563EB; }
         .gaming-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .gaming-card:hover { transform: translateY(-5px); border-color: rgba(37, 99, 235, 0.4); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased text-left">
 
-  <nav class="fixed w-full z-50 px-4 md:px-6 py-3">
-    <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-8 py-3 flex justify-between items-center relative">
-        
-        <a href="index.html" class="flex items-center group transition">
-            <img src="./logoblancoblue.png" alt="Bluetech Logo" 
-                 class="h-10 md:h-14 w-auto object-contain block transition-transform duration-500 group-hover:scale-105">
-        </a>
+    <div id="sidebar-overlay"></div>
 
-        <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-[0.2em]">
-            <a href="index.html" class="hover:text-bt-primary transition text-white">Inicio</a>
-            <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
-            <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
-            <a href="mundogaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
-            <a href="tablets.html" class="hover:text-bt-primary transition text-white text-left">Tablets</a>
+    <nav class="fixed w-full z-[160] px-4 md:px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center relative">
+            <a href="index.html"><img src="./logoblancoblue.png" alt="Logo" class="h-10 md:h-14 w-auto"></a>
             
-            <a href="https://wa.me/1809XXXXXXX" target="_blank" 
-               class="bg-whatsapp text-white px-6 py-2.5 rounded-full font-bold hover:shadow-lg hover:shadow-whatsapp/20 transition duration-300 flex items-center">
-                <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>WhatsApp
-            </a>
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white">
+                <a href="index.html" class="hover:text-bt-primary transition">Inicio</a>
+                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
+                <a href="mundogaming.html" class="text-bt-primary transition text-white">Mundo Gaming</a>
+                <a href="tablets.html" class="hover:text-bt-primary transition text-white text-left">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" target="_blank" class="bg-whatsapp px-5 py-2.5 rounded-full font-bold">WhatsApp</a>
+            </div>
+
+            <button id="open-sidebar" class="lg:hidden text-white text-3xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
         </div>
+    </nav>
 
-        <button id="menu-toggle" class="lg:hidden text-white text-3xl p-2 transition-transform active:scale-90">
-            <i class="fa-solid fa-bars-staggered"></i>
-        </button>
+    <div id="mobile-sidebar" class="glass p-10 flex flex-col gap-6 lg:hidden text-left">
+        <div class="flex justify-between items-center mb-10 border-b border-white/5 pb-6">
+            <img src="./logoblancoblue.png" alt="Logo" class="h-8 w-auto">
+            <button id="close-sidebar" class="text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-xl font-black uppercase tracking-tighter text-white">
+            <a href="index.html">Inicio</a>
+            <a href="laptops.html">Laptops</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="mundogaming.html" class="text-bt-primary">Mundo Gaming</a>
+            <a href="tablets.html">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-center py-4 rounded-2xl mt-6 text-sm">WhatsApp Business</a>
+        </div>
     </div>
-
-    <div id="mobile-menu" class="absolute top-24 left-4 right-4 glass rounded-[2.5rem] p-8 flex flex-col gap-6 lg:hidden shadow-2xl">
-        <a href="index.html" class="text-xl font-black uppercase tracking-tighter text-white">Inicio</a>
-        <a href="laptops.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-white">Laptops</a>
-        <a href="celulares.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-white">Celulares</a>
-        <a href="mundogaming.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-white">Gaming</a>
-        <a href="tablets.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-white text-left">Tablets</a>
-        <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-4 rounded-2xl font-black uppercase tracking-widest mt-2">
-            <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
-        </a>
-    </div>
-</nav>
 
     <header class="pt-36 md:pt-40 pb-8 px-6 max-w-7xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-black text-white tracking-tighter mb-8 uppercase">
@@ -88,7 +105,7 @@
             <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
         </div>
 
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 overflow-x-auto no-scrollbar pb-2">
             <button onclick="filterProducts('todos')" class="filter-btn active px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest">Todos</button>
             <button onclick="filterProducts('Teclados mecanicos')" class="filter-btn px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest">Teclados</button>
             <button onclick="filterProducts('Bocinas')" class="filter-btn px-4 py-2 rounded-lg text-[9px] font-black uppercase tracking-widest">Bocinas</button>
@@ -103,18 +120,12 @@
             </div>
     </main>
 
-    <footer class="bg-bt-deep border-t border-white/5 py-10 text-left">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-                <img src="./logoblancoblue.png" alt="Bluetech" class="h-8 w-auto">
-                <p class="text-slate-600 text-[9px] font-black uppercase tracking-[0.2em]">Santo Domingo, RD • @bluetech014</p>
-            </div>
-            <div class="flex flex-col items-center md:items-end gap-1 text-left">
-                <p class="text-slate-600 text-[9px] uppercase tracking-[0.3em] font-bold">&copy; 2026 Bluetech Solutions</p>
-                <div class="flex items-center gap-1 text-[9px] font-black uppercase tracking-widest">
-                    <span class="text-slate-500">Powered by</span>
-                    <a href="https://auragency.net/" target="_blank" class="text-bt-primary hover:text-white transition-all">Aura Agency</a>
-                </div>
+    <footer class="bg-bt-deep border-t border-white/5 py-12 text-left">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest italic">&copy; 2026 Bluetech Solutions RD</p>
+            <div class="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest italic text-left">
+                <span class="text-slate-500">Powered by</span>
+                <a href="https://auragency.net/" target="_blank" class="text-bt-primary hover:text-white transition-all">Aura Agency</a>
             </div>
         </div>
     </footer>
@@ -123,11 +134,26 @@
         const GAS_URL = 'https://script.google.com/macros/s/AKfycbx90xObT5MZ27r7tx5j6cA07hPqur8OVvxKtgzZbcKmxTwM8U4cSwEprpEsjZnawZ-K/exec';
         let allProducts = [];
 
+        // SIDEBAR LOGIC
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
         async function fetchGaming() {
             try {
                 const response = await fetch(GAS_URL + '?sheet=Gaming');
-                const data = await response.json();
-                allProducts = data;
+                allProducts = await response.json();
                 renderProducts(allProducts);
                 document.getElementById('loader').classList.add('hidden');
             } catch (e) { console.error("Error cargando Gaming:", e); }
@@ -138,8 +164,8 @@
             grid.innerHTML = items.map(p => `
                 <div class="gaming-card glass rounded-[1.5rem] p-4 border border-white/5 flex flex-col group text-left">
                     <div class="h-44 rounded-xl overflow-hidden mb-4 bg-bt-deep border border-white/5 relative">
-                        <img src="${p.imagen}" class="w-full h-full object-contain p-3 group-hover:scale-105 transition duration-500">
-                        ${p.cantidad <= 0 ? '<span class="absolute top-2 right-2 bg-red-600/90 text-white text-[7px] font-black px-2 py-0.5 rounded-full uppercase">Agotado</span>' : ''}
+                        <img src="${p.imagen}" class="w-full h-full object-contain p-3 group-hover:scale-105 transition duration-500" loading="lazy" alt="${p.modelo}">
+                        ${parseInt(p.cantidad) <= 0 ? '<span class="absolute top-2 right-2 bg-red-600/90 text-white text-[7px] font-black px-2 py-0.5 rounded-full uppercase">Agotado</span>' : ''}
                     </div>
                     <span class="text-bt-primary font-black text-[8px] uppercase tracking-widest mb-1">${p.marca}</span>
                     <h3 class="text-sm font-black text-white mb-4 uppercase tracking-tight leading-tight h-10 line-clamp-2">${p.modelo}</h3>
