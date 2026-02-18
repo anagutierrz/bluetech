@@ -42,36 +42,45 @@
     </style>
 </head>
 <body class="antialiased text-left">
+<nav class="fixed w-full z-50 px-4 md:px-6 py-4">
+    <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-8 py-6 flex justify-between items-center relative">
+        
+        <a href="index.html" class="flex items-center group transition">
+            <img src="./logoblancoblue.png" alt="Blue Tech Logo" 
+                 class="h-20 md:h-32 w-auto object-contain block transition-transform duration-500 group-hover:scale-105">
+        </a>
 
-    <nav class="fixed w-full z-50 px-4 md:px-6 py-4">
-        <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-8 py-5 flex justify-between items-center relative">
-            <a href="index.html" class="flex items-center">
-                <img src="./logoblancoblue.png" alt="Bluetech Logo" class="h-14 md:h-20 w-auto object-contain block transition-transform hover:scale-105">
+        <div class="hidden lg:flex items-center gap-8 text-[12px] font-black uppercase tracking-[0.2em]">
+            <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
+            <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
+            <a href="accesorios.html" class="hover:text-bt-primary transition text-white">Accesorios</a>
+            <a href="gaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
+            <a href="tablets.html" class="hover:text-bt-primary transition text-white text-left">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" target="_blank" 
+               class="bg-whatsapp text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-whatsapp/20 transition duration-300">
+                <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>WhatsApp
             </a>
-
-            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest">
-                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
-                <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
-                <a href="accesorios.html" class="hover:text-bt-primary transition text-white">Accesorios</a>
-                <a href="gaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
-                <a href="tablets.html" class="hover:text-bt-primary transition text-white">Tablets</a>
-                <a href="https://wa.me/1809XXXXXXX" target="_blank" class="bg-whatsapp/10 text-whatsapp px-5 py-2.5 rounded-full border border-whatsapp/20 hover:bg-whatsapp hover:text-white transition">
-                    <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
-                </a>
-            </div>
-
-            <button id="menu-toggle" class="lg:hidden text-white text-3xl p-2"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
-        <div id="mobile-menu" class="absolute top-28 left-4 right-4 glass rounded-[2.5rem] p-10 flex flex-col gap-6 lg:hidden">
-            <a href="laptops.html" class="text-xl font-black uppercase tracking-tighter">Laptops</a>
-            <a href="celulares.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-left">Celulares</a>
-            <a href="accesorios.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-left">Accesorios</a>
-            <a href="gaming.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-left">Mundo Gaming</a>
-            <a href="tablets.html" class="text-xl font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-left">Tablets</a>
-            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-5 rounded-2xl font-black uppercase tracking-widest mt-2"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
-        </div>
-    </nav>
+        <button id="menu-toggle" class="lg:hidden text-white text-4xl p-2">
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+    </div>
+
+    <div id="mobile-menu" class="absolute top-36 left-4 right-4 glass rounded-[2.5rem] p-10 flex flex-col gap-8 lg:hidden shadow-2xl">
+        <a href="laptops.html" class="text-2xl font-black uppercase tracking-tighter">Laptops</a>
+        <a href="celulares.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left">Celulares</a>
+        <a href="accesorios.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left">Accesorios</a>
+        <a href="gaming.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left">Mundo Gaming</a>
+        <a href="tablets.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-left">Tablets</a>
+        <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-6 rounded-3xl font-black uppercase tracking-widest mt-4">
+            <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+        </a>
+    </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-6 pt-64 md:pt-80 pb-12">
+    </main>
 
     <main class="max-w-7xl mx-auto px-6 pt-56 md:pt-72 pb-12">
         <div class="mb-16 animate__animated animate__fadeIn max-w-3xl">
