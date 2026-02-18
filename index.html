@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Bluetech | Hardware Pro & High-End Solutions</title>
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
@@ -31,24 +31,27 @@
         :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
         body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; overflow-x: hidden; }
         h1, h2, h3 { font-family: var(--font-titles); letter-spacing: -0.04em; }
-        .glass { background: rgba(10, 15, 29, 0.85); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass { background: rgba(10, 15, 29, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        /* SOLUCIÓN AL MENÚ BLOQUEADO */
-        #mobile-menu { display: none; } /* Oculto totalmente por defecto */
-        #mobile-menu.active { display: flex; } /* Solo existe cuando se activa */
+        /* ELIMINAR CUALQUIER BLOQUEO EN MÓVIL */
+        .bento-card { display: block !important; position: relative; z-index: 10; overflow: hidden; transition: transform 0.2s; }
+        .bento-card:active { transform: scale(0.97); }
 
-        .bento-card { display: block; position: relative; overflow: hidden; border-radius: 2.5rem; transition: all 0.4s; z-index: 10; }
+        /* MENÚ DESPLEGABLE LIGERO */
+        #nav-menu-bluetech { display: none; position: absolute; top: 85px; left: 16px; right: 16px; z-index: 1000; }
+        #nav-menu-bluetech.open { display: flex; flex-direction: column; }
+
         .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.2) 100%); }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 500; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body class="antialiased text-left">
 
     <a href="https://wa.me/1809XXXXXXX" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
 
-    <nav class="fixed w-full z-[200] px-4 py-4">
+    <nav class="fixed w-full z-[1000] px-4 py-4">
         <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center">
-            <a href="index.html"><img src="./logoblancoblue.png" class="h-10 md:h-14 w-auto"></a>
+            <a href="index.html" class="z-[1001]"><img src="./logoblancoblue.png" class="h-10 md:h-14 w-auto"></a>
             
             <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-left">
                 <a href="laptops.html" class="hover:text-bt-primary">Laptops</a>
@@ -57,22 +60,22 @@
                 <a href="tablets.html" class="hover:text-bt-primary">Tablets</a>
             </div>
 
-            <button id="menu-toggle" class="lg:hidden text-white text-3xl p-2"><i class="fa-solid fa-bars-staggered"></i></button>
+            <button id="trigger-bluetech" class="lg:hidden text-white text-3xl p-2 z-[1001]"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
-        <div id="mobile-menu" class="absolute top-24 left-4 right-4 glass rounded-[2.5rem] p-8 flex-col gap-6 lg:hidden animate__animated animate__fadeInDown">
+        <div id="nav-menu-bluetech" class="glass rounded-[2rem] p-8 gap-5 animate__animated animate__fadeInDown">
             <a href="laptops.html" class="text-xl font-black uppercase text-white">Laptops</a>
             <a href="celulares.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white">Celulares</a>
             <a href="mundogaming.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white">Mundo Gaming</a>
             <a href="tablets.html" class="text-xl font-black uppercase border-t border-white/5 pt-4 text-white">Tablets</a>
-            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-4 rounded-2xl font-black uppercase tracking-widest mt-2">WhatsApp</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-4 rounded-xl font-black uppercase tracking-widest mt-2">WhatsApp</a>
         </div>
     </nav>
 
     <div class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-44">
         <div class="relative overflow-hidden rounded-[2.5rem] glass h-[450px] md:h-[480px] flex flex-col md:flex-row border border-white/5">
             <div class="w-full md:w-1/2 relative z-10 h-full flex flex-col justify-center px-10 md:px-16 bg-gradient-to-r from-bt-deep via-bt-deep/80 to-transparent">
-                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full w-fit mb-4">Temporada 2026</span>
+                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full w-fit mb-4">Temporada 2026</span>
                 <h2 class="text-4xl md:text-6xl font-black text-white leading-[0.9] mb-4 uppercase italic">Viste tu <br><span class="text-bt-primary">Workspace.</span></h2>
                 <p class="text-slate-400 text-sm md:text-lg font-medium max-w-md mb-8 italic">Equipos de élite seleccionados para profesionales.</p>
                 <a href="https://wa.me/1809XXXXXXX" class="bg-bt-primary text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-xl w-fit">Ver Ofertas</a>
@@ -88,28 +91,28 @@
         </div>
     </div>
 
-    <main class="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-12 text-left">
-        <div class="mb-12"><h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase">Tu Próximo Nivel <br><span class="text-bt-primary italic">Empieza Aquí.</span></h1></div>
+    <main class="max-w-7xl mx-auto px-6 pt-16 md:pt-24 pb-12 text-left relative z-10">
+        <div class="mb-12"><h1 class="text-5xl md:text-7xl font-black text-white leading-[1.1] uppercase">Tu Próximo Nivel <br><span class="text-bt-primary italic text-left">Empieza Aquí.</span></h1></div>
         <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
             <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card p-8 md:p-10 min-h-[350px] md:min-h-[450px] border border-white/5 bg-bt-primary/5">
                 <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-40">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10"><h2 class="text-4xl md:text-6xl font-black text-white uppercase">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase tracking-widest">Work Pro & Gaming</p></div>
+                <div class="relative z-20"><h2 class="text-4xl md:text-6xl font-black text-white uppercase">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase tracking-widest">Work Pro & Gaming</p></div>
             </a>
-            <a href="celulares.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5">
+            <a href="celulares.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10"><h3 class="text-3xl font-black uppercase text-white">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest">Apple & Samsung Pro</p></div>
+                <div class="relative z-20"><h3 class="text-3xl font-black uppercase text-white">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left">Apple & Samsung Pro</p></div>
             </a>
-            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-bt-accent/5">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10"><h3 class="text-3xl font-black text-bt-accent uppercase">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase tracking-widest text-left">Setup & Consolas</p></div>
+                <div class="relative z-20 text-left"><h3 class="text-3xl font-black text-bt-accent uppercase">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase tracking-widest text-left">Setup & Consolas</p></div>
             </a>
-            <a href="tablets.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 text-left">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <a href="tablets.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10"><h3 class="text-3xl font-black uppercase text-white">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest">iPad & Pro Series</p></div>
+                <div class="relative z-20 text-left"><h3 class="text-3xl font-black uppercase text-white">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left">iPad & Pro Series</p></div>
             </a>
         </div>
     </main>
@@ -121,21 +124,21 @@
                 <p class="text-slate-300 italic mb-8">"Excelente servicio y atención. Compré mi laptop aquí y la asesoría fue impecable."</p>
                 <div class="flex items-center gap-4 text-left">
                     <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center font-black">AM</div>
-                    <div><h4 class="font-black text-sm uppercase">Alejandro Medina</h4><span class="text-purple-400 text-[9px] font-black uppercase">Local Guide</span></div>
+                    <div><h4 class="font-black text-sm uppercase">Alejandro Medina</h4><span class="text-purple-400 text-[9px] font-black uppercase text-left">Local Guide</span></div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-primary text-left">
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-primary">
                 <p class="text-slate-300 italic mb-8">"Súper responsables con la garantía y la entrega. El equipo llegó a Santiago rápido."</p>
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-4 text-left">
                     <div class="w-10 h-10 bg-bt-primary rounded-full flex items-center justify-center font-black">CP</div>
-                    <div><h4 class="font-black text-sm uppercase">Carlos Peralta</h4><span class="text-bt-primary text-[9px] font-black uppercase">Cliente Verificado</span></div>
+                    <div><h4 class="font-black text-sm uppercase">Carlos Peralta</h4><span class="text-bt-primary text-[9px] font-black uppercase text-left">Cliente Verificado</span></div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-accent text-left">
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-accent">
                 <p class="text-slate-300 italic mb-8">"La mejor tienda de tecnología en SD. Precios competitivos y un trato profesional."</p>
-                <div class="flex items-center gap-4 text-left text-left">
-                    <div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-black">LR</div>
-                    <div><h4 class="font-black text-sm uppercase">Laura Rodríguez</h4><span class="text-bt-accent text-[9px] font-black uppercase">Local Guide</span></div>
+                <div class="flex items-center gap-4 text-left">
+                    <div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-black text-bt-deep">LR</div>
+                    <div><h4 class="font-black text-sm uppercase">Laura Rodríguez</h4><span class="text-bt-accent text-[9px] font-black uppercase text-left">Local Guide</span></div>
                 </div>
             </div>
         </div>
@@ -144,7 +147,7 @@
     <footer class="bg-bt-deep border-t border-white/5 py-12 text-left">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
             <p class="text-slate-500 text-[10px] font-black uppercase tracking-widest italic">&copy; 2026 Bluetech Solutions RD</p>
-            <div class="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest italic">
+            <div class="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-widest italic text-left">
                 <span class="text-slate-500">Powered by</span>
                 <a href="https://auragency.net/" target="_blank" class="text-bt-primary">Aura Agency</a>
             </div>
@@ -153,19 +156,22 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // Iniciar Slider
         new Swiper(".mySwiper", { effect: "fade", loop: true, autoplay: { delay: 4500 } });
 
-        const btn = document.getElementById('menu-toggle');
-        const menu = document.getElementById('mobile-menu');
+        // SISTEMA DE NAVEGACIÓN BLINDADO
+        const trigger = document.getElementById('trigger-bluetech');
+        const menu = document.getElementById('nav-menu-bluetech');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('active');
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('open');
         });
 
-        // Cerrar menú al hacer clic fuera o en un link
+        // Cerrar menú si se toca fuera
         document.addEventListener('click', (e) => {
-            if (!menu.contains(e.target) && !btn.contains(e.target)) {
-                menu.classList.remove('active');
+            if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+                menu.classList.remove('open');
             }
         });
     </script>
