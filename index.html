@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Bluetech | Hardware Pro & High-End Solutions</title>
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
-    <meta name="description" content="Tecnología de élite seleccionada para el flujo de trabajo profesional. Laptops pro, celulares y gaming en RD.">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,123 +29,82 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
-        
-        :root {
-            --font-titles: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        body { 
-            font-family: var(--font-body); 
-            background-color: #0A0F1D; 
-            color: #F8FAFC; 
-            scroll-behavior: smooth; 
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3, h4, .font-title { 
-            font-family: var(--font-titles); 
-            letter-spacing: -0.04em; 
-        }
-
-        .title-accent {
-            font-style: italic;
-            font-weight: 900;
-            display: inline-block;
-        }
-
+        :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
+        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, h4 { font-family: var(--font-titles); letter-spacing: -0.04em; }
+        .title-accent { font-style: italic; font-weight: 900; display: inline-block; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; }
+        .bento-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); overflow: hidden; position: relative; display: flex; flex-direction: column; justify-content: flex-end; text-align: left; }
         .bento-card:hover { transform: translateY(-8px); border-color: #2563EB; box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15); }
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; z-index: 100; transition: all 0.3s ease; }
-        .whatsapp-float:hover { transform: scale(1.1) rotate(5deg); }
         .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.3) 100%); }
+        #mobile-menu { transition: all 0.3s ease-in-out; transform: translateY(-100%); opacity: 0; pointer-events: none; }
+        #mobile-menu.active { transform: translateY(0); opacity: 1; pointer-events: auto; }
     </style>
 </head>
 <body class="antialiased text-left">
 
-   <nav class="fixed w-full z-50 px-6 py-6">
-    <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-10 py-5 flex justify-center items-center">
-        <a href="index.html" class="flex items-center group transition">
-            <img src="./logoblancoblue.png" alt="Bluetech Logo" class="h-16 md:h-24 w-auto object-contain block">
-        </a>
-        </div>
-</nav>
+    <nav class="fixed w-full z-50 px-4 md:px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-[2rem] px-6 py-4 flex justify-between items-center relative">
+            <a href="index.html" class="flex items-center">
+                <img src="./logoblancoblue.png" alt="Bluetech Logo" class="h-10 md:h-16 w-auto object-contain block">
+            </a>
 
-<main class="max-w-7xl mx-auto px-6 pt-64 pb-12 text-left">
-    <div class="mb-12 animate__animated animate__fadeIn">
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
-            Tu Próximo Nivel <br class="md:hidden">
-            <span class="text-bt-primary title-accent">Empieza Aquí.</span>
-        </h1>
-        <p class="text-slate-500 mt-6 font-medium max-w-2xl leading-relaxed text-lg text-left">
-            Tecnología de élite seleccionada para el flujo de trabajo profesional. 
-            Sincronización de inventario en tiempo real.
-        </p>
-    </div>
-    
-    </main>
+            <div class="hidden lg:flex items-center gap-6 text-[11px] font-black uppercase tracking-widest">
+                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
+                <a href="accesorios.html" class="hover:text-bt-primary transition text-white">Accesorios</a>
+                <a href="gaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
+                <a href="tablets.html" class="hover:text-bt-primary transition text-white">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" target="_blank" class="bg-whatsapp/10 text-whatsapp px-4 py-2 rounded-full border border-whatsapp/20 hover:bg-whatsapp hover:text-white transition">
+                    <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
+                </a>
+            </div>
 
-    <main class="max-w-7xl mx-auto px-6 pt-48 pb-12 text-left">
-        <div class="mb-12 animate__animated animate__fadeIn">
-            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white leading-tight">
-                Tu Próximo Nivel <br class="md:hidden">
-                <span class="text-bt-primary title-accent">Empieza Aquí.</span>
-            </h1>
-            <p class="text-slate-500 mt-6 font-medium max-w-2xl leading-relaxed text-lg">
-                Tecnología de élite seleccionada para el flujo de trabajo profesional. 
-                Sincronización de inventario en tiempo real.
-            </p>
+            <button id="menu-toggle" class="lg:hidden text-white text-2xl p-2"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-6 gap-6 h-auto">
-            
-            <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card glass rounded-[2.5rem] p-10 min-h-[500px] flex flex-col justify-end group">
-                <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10">
-                    <span class="bg-bt-primary px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-4 inline-block text-white">Top Ventas</span>
-                    <h2 class="text-5xl font-black mb-2 text-white uppercase tracking-tighter">Laptops</h2>
-                    <p class="text-slate-300 italic text-sm">Gaming & Workstations de alto rendimiento.</p>
-                </div>
-            </a>
+        <div id="mobile-menu" class="absolute top-24 left-4 right-4 glass rounded-[2rem] p-8 flex flex-col gap-6 lg:hidden">
+            <a href="laptops.html" class="text-lg font-black uppercase tracking-tighter">Laptops</a>
+            <a href="celulares.html" class="text-lg font-black uppercase tracking-tighter border-t border-white/5 pt-4">Celulares</a>
+            <a href="accesorios.html" class="text-lg font-black uppercase tracking-tighter border-t border-white/5 pt-4">Accesorios</a>
+            <a href="gaming.html" class="text-lg font-black uppercase tracking-tighter border-t border-white/5 pt-4">Mundo Gaming</a>
+            <a href="tablets.html" class="text-lg font-black uppercase tracking-tighter border-t border-white/5 pt-4 text-left">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-4 rounded-2xl font-black uppercase tracking-widest mt-2"><i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp</a>
+        </div>
+    </nav>
 
-            <a href="celulares.html" class="md:col-span-3 bento-card glass rounded-[2.5rem] p-10 min-h-[300px] flex flex-col justify-end group">
-                <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition duration-700">
-                <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10">
-                    <h3 class="text-4xl font-black text-white uppercase tracking-tighter">Celulares</h3>
-                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1">iPhone & Samsung Pro Series</p>
-                </div>
-            </a>
+    <main class="max-w-7xl mx-auto px-6 pt-48 md:pt-64 pb-12">
+        <div class="mb-16 animate__animated animate__fadeIn max-w-3xl">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-white leading-[1.1]">Tu Próximo Nivel <br><span class="text-bt-primary title-accent">Empieza Aquí.</span></h1>
+            <p class="text-slate-500 mt-6 font-medium text-lg leading-relaxed">Hardware de élite y soluciones tecnológicas pro en RD. Inventario en tiempo real.</p>
+        </div>
 
-            <a href="accesorios.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[250px] flex flex-col justify-end group">
-                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=600" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
+        <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+            <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card glass rounded-[2.5rem] p-10 min-h-[450px] group">
+                <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition duration-700">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10">
-                    <h3 class="text-2xl font-black text-white uppercase tracking-tighter text-left">Accesorios</h3>
-                    <p class="text-[10px] text-bt-primary font-bold uppercase text-left">Periféricos & Más</p>
-                </div>
+                <div class="relative z-10"><span class="bg-bt-primary px-3 py-1 rounded-full text-[9px] font-black uppercase tracking-widest mb-4 inline-block text-white">Top Ventas</span><h2 class="text-4xl md:text-6xl font-black mb-2 text-white uppercase tracking-tighter">Laptops</h2><p class="text-slate-300 italic text-sm">Gaming & Workstations Pro.</p></div>
             </a>
-
-            <a href="gaming.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[250px] flex flex-col justify-end group">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
+            <a href="celulares.html" class="md:col-span-3 bento-card glass rounded-[2.5rem] p-10 min-h-[280px] group">
+                <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition duration-700">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10">
-                    <h3 class="text-2xl font-black text-white uppercase tracking-tighter text-left">Mundo Gaming</h3>
-                    <p class="text-[10px] text-bt-accent font-bold uppercase text-left">Consolas & Setup</p>
-                </div>
+                <div class="relative z-10"><h3 class="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter">Celulares</h3><p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-1">iPhone & Samsung Pro.</p></div>
             </a>
-
-            <a href="tablets.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[250px] flex flex-col justify-end group">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-110 transition duration-700">
+            <a href="accesorios.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[220px] group">
+                <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=600" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition duration-700">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10">
-                    <h3 class="text-2xl font-black text-white uppercase tracking-tighter text-left">Tablets</h3>
-                    <p class="text-[10px] text-slate-400 font-bold uppercase text-left">iPad & Android Pro</p>
-                </div>
+                <div class="relative z-10"><h3 class="text-2xl font-black text-white uppercase tracking-tighter">Accesorios</h3><p class="text-[10px] text-bt-primary font-bold uppercase">Periféricos & Más.</p></div>
             </a>
-
+            <a href="gaming.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[220px] group">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10"><h3 class="text-2xl font-black text-white uppercase tracking-tighter">Mundo Gaming</h3><p class="text-[10px] text-bt-accent font-bold uppercase">Consolas & Setup.</p></div>
+            </a>
+            <a href="tablets.html" class="md:col-span-2 bento-card glass rounded-[2.5rem] p-8 min-h-[220px] group">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:scale-105 transition duration-700">
+                <div class="absolute inset-0 img-overlay"></div>
+                <div class="relative z-10"><h3 class="text-2xl font-black text-white uppercase tracking-tighter text-left">Tablets</h3><p class="text-[10px] text-slate-400 font-bold uppercase text-left">iPad & Android Pro.</p></div>
+            </a>
         </div>
     </main>
 
@@ -157,72 +113,44 @@
             <div>
                 <h2 class="text-3xl font-extrabold tracking-tight text-white italic">Feedback Certificado</h2>
                 <div class="flex items-center gap-2 mt-2">
-                    <div class="flex text-bt-accent text-sm">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
+                    <div class="flex text-bt-accent text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     <p class="text-slate-500 text-xs font-bold uppercase tracking-widest text-left">Google Business Verified</p>
                 </div>
             </div>
             <a href="#" class="text-bt-primary font-bold text-sm hover:underline italic">Ver reseñas →</a>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-[2rem] border border-white/5 text-left">
-                <p class="text-slate-400 text-sm italic mb-6">"Asesoría de primera. Mi laptop para desarrollo vuela. Bluetech es calidad real en RD."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-bt-primary rounded-full flex items-center justify-center font-bold text-white text-xs">JD</div>
-                    <h4 class="font-bold text-xs text-white">Juan Delgado</h4>
-                </div>
-            </div>
-            <div class="glass p-8 rounded-[2rem] border border-white/5 text-left">
-                <p class="text-slate-400 text-sm italic mb-6">"El envío fue súper rápido a Santiago. El equipo llegó impecable."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-bold text-bt-deep text-xs">MA</div>
-                    <h4 class="font-bold text-xs text-white text-left">María Almonte</h4>
-                </div>
-            </div>
-            <div class="glass p-8 rounded-[2rem] border border-white/5 text-left">
-                <p class="text-slate-400 text-sm italic mb-6">"Soporte técnico post-venta real. Muy profesionales en todo el proceso."</p>
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold text-white text-xs text-left">RC</div>
-                    <h4 class="font-bold text-xs text-white text-left">Ricardo Castro</h4>
-                </div>
-            </div>
+            <div class="glass p-8 rounded-[2rem] text-left"><p class="text-slate-400 text-sm italic mb-6">"Asesoría de primera. Mi laptop para desarrollo vuela. Bluetech es calidad real en RD."</p><div class="flex items-center gap-4"><div class="w-10 h-10 bg-bt-primary rounded-full flex items-center justify-center font-bold text-white text-xs">JD</div><h4 class="font-bold text-xs text-white">Juan Delgado</h4></div></div>
+            <div class="glass p-8 rounded-[2rem] text-left"><p class="text-slate-400 text-sm italic mb-6">"El envío fue súper rápido a Santiago. El equipo llegó impecable."</p><div class="flex items-center gap-4"><div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-bold text-bt-deep text-xs">MA</div><h4 class="font-bold text-xs text-white">María Almonte</h4></div></div>
+            <div class="glass p-8 rounded-[2rem] text-left"><p class="text-slate-400 text-sm italic mb-6">"Soporte técnico post-venta real. Muy profesionales en todo."</p><div class="flex items-center gap-4"><div class="w-10 h-10 bg-slate-700 rounded-full flex items-center justify-center font-bold text-white text-xs">RC</div><h4 class="font-bold text-xs text-white">Ricardo Castro</h4></div></div>
         </div>
     </section>
 
-    <footer class="bg-bt-deep border-t border-white/5 pt-16 pb-8 text-left">
+    <footer class="bg-bt-deep border-t border-white/5 pt-20 pb-10 text-left">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-                <div>
-                    <img src="logoblue.png" alt="Bluetech" class="h-10 w-auto mb-6">
-                    <p class="text-slate-500 text-sm max-w-xs italic text-left">Expertos en hardware de alto rendimiento. Calidad y garantía local.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4 text-left">Ubicación</h4>
-                    <p class="text-slate-400 text-sm text-left">Plaza Samil, Local #XX<br>Santo Domingo, Rep. Dom.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-4 text-left">Síguenos</h4>
-                    <a href="https://instagram.com/bluetech014" target="_blank" class="flex items-center gap-3 text-slate-400 hover:text-bt-primary transition">
-                        <i class="fa-brands fa-instagram text-xl"></i>
-                        <span class="text-sm font-semibold">@bluetech014</span>
-                    </a>
-                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 text-left">
+                <div><img src="./logoblancoblue.png" alt="Bluetech" class="h-10 w-auto mb-6 text-left"><p class="text-slate-500 text-sm italic text-left">Hardware Pro en RD con garantía local.</p></div>
+                <div><h4 class="text-white font-bold uppercase tracking-widest text-[10px] mb-6 text-left">Ubicación</h4><p class="text-slate-400 text-sm leading-relaxed italic text-left">Plaza Samil, Local #XX<br>Santo Domingo, Rep. Dom.</p></div>
+                <div><h4 class="text-white font-bold uppercase tracking-widest text-[10px] mb-6 text-left">Social</h4><a href="https://instagram.com/bluetech014" target="_blank" class="flex items-center gap-3 text-slate-400 hover:text-bt-primary transition text-left"><i class="fa-brands fa-instagram text-xl"></i><span class="text-sm font-semibold italic">@bluetech014</span></a></div>
             </div>
-            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-bold">&copy; 2026 Bluetech Solutions RD</p>
-                <div class="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold">
-                    <span>Desarrollado por</span>
-                    <a href="https://auragency.net/" target="_blank" class="text-bt-primary font-black">Aura</a>
-                </div>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-left">
+                <p class="text-slate-600 text-[10px] uppercase tracking-[0.2em] font-black">&copy; 2026 Bluetech Solutions RD</p>
+                <div class="flex items-center gap-2 text-[10px] text-slate-500 uppercase tracking-widest font-bold"><span>Desarrollado por</span><a href="https://auragency.net/" target="_blank" class="text-bt-primary font-black hover:text-white transition">Aura</a></div>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Vengo%20desde%20la%20web." target="_blank" class="whatsapp-float bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-white text-3xl">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
+    <script>
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fa-bars-staggered');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>
