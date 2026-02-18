@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluetech | Hardware Pro & High-End Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Bluetech RD | Hardware Pro & High-End Solutions</title>
+    <meta name="description" content="Expertos en hardware de alto rendimiento en RD. Laptops, Celulares y Mundo Gaming con garantía local.">
     <link rel="icon" type="image/png" href="logoblancoblue.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -27,42 +28,70 @@
     </script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
-        :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
-        body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, h4 { font-family: var(--font-titles); letter-spacing: -0.04em; }
-        .glass { background: rgba(10, 15, 29, 0.75); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0A0F1D; color: #F8FAFC; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Outfit', sans-serif; letter-spacing: -0.04em; }
+        .glass { background: rgba(10, 15, 29, 0.8); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* SIDEBAR MÓVIL */
+        #mobile-sidebar { 
+            position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; 
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; 
+        }
+        #mobile-sidebar.active { right: 0; }
+        #sidebar-overlay { 
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8); 
+            opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1500; 
+        }
+        #sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+
         .bento-card { display: block; position: relative; overflow: hidden; border-radius: 2.5rem; transition: all 0.4s; }
-        .bento-card:hover { transform: translateY(-5px); border-color: #2563EB; }
+        .bento-card:hover { transform: translateY(-8px); border-color: #2563EB; }
         .img-overlay { background: linear-gradient(to top, rgba(10, 15, 29, 0.95) 0%, rgba(10, 15, 29, 0.2) 100%); }
-        .wa-float { position: fixed; bottom: 20px; right: 20px; background: #25D366; color: white; border-radius: 50%; width: 55px; height: 55px; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 100; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .wa-float { position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white; border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 30px; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
     </style>
 </head>
 <body class="antialiased text-left">
 
     <a href="https://wa.me/1809XXXXXXX" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <div id="sidebar-overlay"></div>
 
     <nav class="fixed w-full z-[160] px-4 md:px-6 py-4">
         <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center">
-            <a href="index.html">
-                <img src="./logoblancoblue.png" alt="Logo" class="h-10 md:h-14 w-auto">
-            </a>
-            <div class="flex items-center gap-4 md:gap-8 text-[9px] md:text-[11px] font-black uppercase tracking-widest">
-                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
-                <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
-                <a href="mundogaming.html" class="hover:text-bt-primary transition text-white">Gaming</a>
-                <a href="tablets.html" class="hover:text-bt-primary transition text-white">Tablets</a>
-                <a href="https://wa.me/1809XXXXXXX" class="hidden md:block bg-whatsapp text-white px-5 py-2 rounded-full font-bold">WhatsApp</a>
+            <a href="index.html"><img src="./logoblancoblue.png" class="h-10 md:h-16 w-auto"></a>
+            
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white">
+                <a href="laptops.html" class="hover:text-bt-primary transition">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition">Celulares</a>
+                <a href="mundogaming.html" class="hover:text-bt-primary transition">Mundo Gaming</a>
+                <a href="tablets.html" class="hover:text-bt-primary transition">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp px-6 py-2.5 rounded-full font-bold">WhatsApp</a>
             </div>
+
+            <button id="open-sidebar" class="lg:hidden text-white text-3xl p-2"><i class="fa-solid fa-bars-staggered"></i></button>
         </div>
     </nav>
+
+    <div id="mobile-sidebar" class="glass p-10 flex flex-col gap-6 lg:hidden text-left">
+        <div class="flex justify-between items-center mb-10 border-b border-white/5 pb-6">
+            <img src="./logoblancoblue.png" class="h-8 w-auto">
+            <button id="close-sidebar" class="text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-xl font-black uppercase tracking-tighter">
+            <a href="laptops.html">Laptops</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="mundogaming.html">Mundo Gaming</a>
+            <a href="tablets.html">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-center py-4 rounded-2xl mt-10">WhatsApp</a>
+        </div>
+    </div>
 
     <div class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-44">
         <div class="relative overflow-hidden rounded-[2.5rem] glass h-[450px] md:h-[480px] flex flex-col md:flex-row border border-white/5">
             <div class="w-full md:w-1/2 relative z-10 h-full flex flex-col justify-center px-10 md:px-16 bg-gradient-to-r from-bt-deep via-bt-deep/80 to-transparent">
-                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full w-fit mb-4 text-left">Temporada 2026</span>
-                <h2 class="text-4xl md:text-6xl font-black text-white leading-[0.9] mb-4 uppercase italic text-left text-left">Viste tu <br><span class="text-bt-primary">Workspace.</span></h2>
-                <p class="text-slate-400 text-sm md:text-lg font-medium max-w-md mb-8 italic text-left">Equipos de élite seleccionados para profesionales.</p>
+                <span class="bg-bt-accent text-bt-deep text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full w-fit mb-4">Temporada 2026</span>
+                <h2 class="text-4xl md:text-6xl font-black text-white leading-[0.9] mb-4 uppercase italic">Viste tu <br><span class="text-bt-primary">Workspace.</span></h2>
+                <p class="text-slate-400 text-sm md:text-lg font-medium max-w-md mb-8 italic">Equipos de élite seleccionados para profesionales.</p>
                 <a href="https://wa.me/1809XXXXXXX" class="bg-bt-primary text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-xl w-fit shadow-xl shadow-bt-primary/20 transition">Ver Ofertas</a>
             </div>
             <div class="w-full md:w-1/2 h-full relative">
@@ -82,22 +111,22 @@
             <a href="laptops.html" class="md:col-span-3 md:row-span-2 bento-card p-8 md:p-10 min-h-[350px] md:min-h-[450px] border border-white/5 bg-bt-primary/5">
                 <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?q=80&w=1000" class="absolute inset-0 w-full h-full object-cover opacity-40">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10 text-left"><h2 class="text-4xl md:text-6xl font-black text-white uppercase">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase tracking-widest text-left">Work Pro & Gaming</p></div>
+                <div class="relative z-10 text-left"><h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter">Laptops</h2><p class="text-bt-primary font-bold text-xs uppercase tracking-widest">Work Pro & Gaming</p></div>
             </a>
-            <a href="celulares.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left">
+            <a href="celulares.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5">
                 <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10 text-left"><h3 class="text-3xl md:text-4xl font-black text-white uppercase text-left">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left">Apple & Samsung Pro</p></div>
+                <div class="relative z-10 text-left"><h3 class="text-3xl font-black uppercase">Celulares</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest">Apple & Samsung Pro</p></div>
             </a>
-            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-bt-accent/5 text-left">
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left text-left">
+            <a href="mundogaming.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-bt-accent/5">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10 text-left text-left"><h3 class="text-3xl md:text-4xl font-black text-bt-accent uppercase">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase tracking-widest text-left text-left">Setup & Consolas</p></div>
+                <div class="relative z-10 text-left"><h3 class="text-3xl font-black text-bt-accent uppercase">Mundo Gaming</h3><p class="text-bt-accent font-bold text-[10px] uppercase tracking-widest">Setup & Consolas</p></div>
             </a>
-            <a href="tablets.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left text-left text-left">
-                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left text-left text-left">
+            <a href="tablets.html" class="md:col-span-3 bento-card p-8 md:p-10 min-h-[250px] border border-white/5 bg-white/5 text-left">
+                <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-30 text-left">
                 <div class="absolute inset-0 img-overlay"></div>
-                <div class="relative z-10 text-left text-left text-left"><h3 class="text-3xl md:text-4xl font-black text-white uppercase text-left text-left">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left text-left text-left">iPad & Pro Series</p></div>
+                <div class="relative z-10 text-left"><h3 class="text-3xl font-black uppercase">Tablets</h3><p class="text-slate-400 font-bold text-[10px] uppercase tracking-widest text-left">iPad & Pro Series</p></div>
             </a>
         </div>
     </main>
@@ -112,18 +141,18 @@
                     <div><h4 class="font-black text-sm uppercase">Alejandro Medina</h4><span class="text-purple-400 text-[9px] font-black uppercase text-left">Local Guide</span></div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-primary">
-                <p class="text-slate-300 italic mb-8">"Súper responsables con la garantía y la entrega. El equipo llegó a Santiago rápido."</p>
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-primary text-left text-left">
+                <p class="text-slate-300 italic mb-8 text-left">"Súper responsables con la garantía y la entrega. El equipo llegó a Santiago rápido."</p>
                 <div class="flex items-center gap-4 text-left">
                     <div class="w-10 h-10 bg-bt-primary rounded-full flex items-center justify-center font-black">CP</div>
                     <div><h4 class="font-black text-sm uppercase">Carlos Peralta</h4><span class="text-bt-primary text-[9px] font-black uppercase text-left text-left">Cliente Verificado</span></div>
                 </div>
             </div>
-            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-accent">
-                <p class="text-slate-300 italic mb-8 text-left">"La mejor tienda de tecnología en SD. Precios competitivos y un trato profesional."</p>
-                <div class="flex items-center gap-4 text-left">
+            <div class="glass p-8 rounded-[2.5rem] border-t-4 border-t-bt-accent text-left text-left">
+                <p class="text-slate-300 italic mb-8 text-left text-left">"La mejor tienda de tecnología en SD. Precios competitivos y un trato profesional."</p>
+                <div class="flex items-center gap-4 text-left text-left">
                     <div class="w-10 h-10 bg-bt-accent rounded-full flex items-center justify-center font-black text-bt-deep text-left">LR</div>
-                    <div><h4 class="font-black text-sm uppercase text-left">Laura Rodríguez</h4><span class="text-bt-accent text-[9px] font-black uppercase text-left">Local Guide</span></div>
+                    <div><h4 class="font-black text-sm uppercase text-left text-left">Laura Rodríguez</h4><span class="text-bt-accent text-[9px] font-black uppercase text-left text-left text-left">Local Guide</span></div>
                 </div>
             </div>
         </div>
@@ -142,8 +171,21 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         new Swiper(".mySwiper", { effect: "fade", loop: true, autoplay: { delay: 4500 } });
+
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
     </script>
-</body>
-</html>
 </body>
 </html>
