@@ -18,7 +18,7 @@
                         'bt-deep': '#0A0F1D',
                         'bt-primary': '#2563EB',
                         'bt-card': '#161E31',
-                        'bt-border': 'rgba(255, 255, 255, 0.08)',
+                        'bt-border': 'rgba(255, 255, 255, 0.12)',
                         'whatsapp': '#25D366'
                     }
                 }
@@ -34,63 +34,54 @@
         
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
         
-        /* Resaltado Pro de Filas */
         .list-row { 
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-            position: relative;
+            transition: all 0.3s ease; 
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 10px;
         }
 
         .list-row:hover { 
-            background: linear-gradient(90deg, rgba(37, 99, 235, 0.08) 0%, rgba(37, 99, 235, 0.01) 100%);
-            transform: translateY(-2px) scale(1.005);
-            border-color: rgba(37, 99, 235, 0.3);
-            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
-            z-index: 10;
+            background: rgba(37, 99, 235, 0.12);
+            border-color: rgba(37, 99, 235, 0.5);
+            transform: translateY(-2px);
         }
 
-        .spec-pill {
-            background: rgba(37, 99, 235, 0.1);
-            border: 1px solid rgba(37, 99, 235, 0.2);
-            color: #60a5fa;
-        }
-
-        .initial-tag {
-            color: #fbbf24;
-            text-shadow: 0 0 10px rgba(251, 191, 36, 0.2);
-        }
-
+        .spec-pill-gb { background: rgba(37, 99, 235, 0.2); border: 1px solid rgba(37, 99, 235, 0.4); color: #93c5fd; }
+        .spec-pill-ram { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; }
+        
+        .initial-tag { color: #fbbf24; font-weight: 800; }
         .category-pill { transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
         .category-pill.active { background: #2563EB; border-color: #2563EB; color: white; }
     </style>
 </head>
 <body class="antialiased">
 
-    <nav class="fixed w-full z-50 px-6 py-4 text-left">
-        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center text-left">
-            <a href="index.html" class="flex items-center group transition text-left">
-                <img src="./logoblue.png" alt="Bluetech Logo" class="h-10 md:h-12 w-auto object-contain block">
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center">
+                <img src="./logoblue.png" alt="Bluetech Logo" class="h-10 md:h-12 w-auto object-contain">
             </a>
-            <div class="flex items-center gap-6 text-sm font-semibold">
-                <a href="index.html" class="hover:text-bt-primary transition text-white">Inicio</a>
-                <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
+            <div class="flex items-center gap-6 text-sm font-semibold uppercase tracking-widest">
+                <a href="index.html" class="hover:text-bt-primary transition text-white text-xs">Inicio</a>
+                <a href="laptops.html" class="hover:text-bt-primary transition text-white text-xs">Laptops</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-40 pb-20">
-        <div class="mb-10 text-left">
+    <main class="max-w-7xl mx-auto px-4 md:px-6 pt-32 md:pt-40 pb-20 text-left">
+        <div class="mb-10">
             <h1 class="text-4xl md:text-5xl font-black mb-4">
                 Listado <span class="text-bt-primary italic">Celulares.</span>
             </h1>
             
             <div class="flex flex-col md:flex-row gap-6 md:items-center justify-between">
                 <div class="relative max-w-xl w-full">
-                    <input type="text" id="phone-search" placeholder="Busca marca o modelo..." 
+                    <input type="text" id="phone-search" placeholder="Busca por modelo o marca..." 
                            class="w-full bg-bt-card border border-bt-border rounded-2xl py-4 px-6 pl-14 focus:ring-2 focus:ring-bt-primary focus:outline-none transition-all text-sm text-white">
-                    <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                    <i class="fa-solid fa-search absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 </div>
-                <div id="results-count" class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                <div id="results-count" class="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em]">
                     Sincronizando...
                 </div>
             </div>
@@ -100,15 +91,14 @@
             </div>
         </div>
 
-        <div class="glass rounded-[2rem] overflow-hidden border border-bt-border animate__animated animate__fadeIn">
-            <div class="hidden md:grid grid-cols-7 bg-white/5 p-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 border-b border-bt-border text-left">
-                <div>Marca</div>
-                <div>Modelo</div>
-                <div>Especificaciones</div>
-                <div>Condición</div>
-                <div>Inversión Total</div>
-                <div>Inicial</div>
-                <div class="text-right">Acción</div>
+        <div class="rounded-[2rem] overflow-hidden animate__animated animate__fadeIn">
+            <div class="hidden md:grid grid-cols-6 bg-white/5 p-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 border-b border-bt-border gap-4">
+                <div class="col-span-1">Modelo</div>
+                <div class="col-span-1 text-center">Almacenamiento / RAM</div>
+                <div class="col-span-1 text-center">Condición</div>
+                <div class="col-span-1 text-center">Precio Final</div>
+                <div class="col-span-1 text-center">Inicial (desde el Sheet)</div>
+                <div class="col-span-1 text-right">Contacto</div>
             </div>
 
             <div id="loader" class="text-center py-20">
@@ -130,6 +120,7 @@
 
         async function fetchPhones() {
             try {
+                // Se conecta al Google Sheet para obtener los datos en tiempo real
                 const response = await fetch(GAS_URL + '?sheet=Celulares', { method: 'GET', redirect: 'follow' });
                 const data = await response.json();
                 allPhones = data;
@@ -138,15 +129,13 @@
                 document.getElementById('loader').classList.add('hidden');
                 document.getElementById('phone-list-container').classList.remove('hidden');
             } catch (error) {
-                console.error("Error:", error);
-                document.getElementById('loader').innerHTML = '<p class="text-red-500 p-10 uppercase text-[10px] font-black text-left">Error de conexión</p>';
+                console.error("Error al obtener datos:", error);
             }
         }
 
         function generateBrandFilters(data) {
             const filterContainer = document.getElementById('brand-filters');
             const brands = [...new Set(data.map(item => item.marca).filter(Boolean))];
-            
             brands.forEach(brand => {
                 const button = document.createElement('button');
                 button.className = 'category-pill bg-white/5 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest';
@@ -164,14 +153,10 @@
             applyFilters();
         }
 
-        document.querySelector('[data-brand="all"]').onclick = function() {
-            filterByBrand('all', this);
-        };
-
         function applyFilters() {
-            const searchTerm = document.getElementById('phone-search').value.toLowerCase();
+            const term = document.getElementById('phone-search').value.toLowerCase();
             const filtered = allPhones.filter(p => {
-                const matchesSearch = p.modelo.toLowerCase().includes(searchTerm) || p.marca.toLowerCase().includes(searchTerm);
+                const matchesSearch = p.modelo.toLowerCase().includes(term) || p.marca.toLowerCase().includes(term);
                 const matchesBrand = currentBrand === 'all' || p.marca === currentBrand;
                 return matchesSearch && matchesBrand;
             });
@@ -181,46 +166,43 @@
         function renderPhones(data) {
             const container = document.getElementById('phone-list-container');
             const countDisplay = document.getElementById('results-count');
-            countDisplay.innerText = `${data.length} Unidades en inventario`;
-
-            if (data.length === 0) {
-                container.innerHTML = '<div class="p-10 text-center text-slate-500 text-sm italic">No se encontraron equipos.</div>';
-                return;
-            }
+            countDisplay.innerText = `${data.length} Dispositivos sincronizados`;
 
             container.innerHTML = data.map(phone => `
-                <div class="list-row p-6 flex flex-col md:grid md:grid-cols-7 gap-4 md:gap-0 md:items-center text-left rounded-xl">
-                    <div class="text-bt-primary font-black text-[10px] uppercase tracking-wider opacity-70">${phone.marca}</div>
+                <div class="list-row p-6 flex flex-col md:grid md:grid-cols-6 gap-4 md:gap-4 md:items-center text-left rounded-xl">
                     
-                    <div class="text-white font-black text-xl md:text-sm uppercase tracking-tighter">${phone.modelo}</div>
+                    <div class="flex flex-col">
+                        <span class="text-bt-primary font-black text-[9px] uppercase tracking-[0.15em] mb-1">${phone.marca}</span>
+                        <div class="text-white font-black text-xl md:text-sm uppercase tracking-tighter">${phone.modelo}</div>
+                    </div>
                     
-                    <div class="flex gap-2">
-                        <span class="spec-pill text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.gb || '-'}</span>
-                        <span class="bg-white/5 border border-white/10 text-slate-400 text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.ram || '-'}</span>
+                    <div class="flex gap-2 md:justify-center">
+                        <span class="spec-pill-gb text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.gb || '-'}</span>
+                        <span class="spec-pill-ram text-[10px] font-bold px-3 py-1.5 rounded-lg">${phone.ram || '-'}</span>
                     </div>
 
-                    <div>
-                        <span class="bg-bt-card text-slate-500 text-[9px] px-3 py-1 rounded uppercase font-black border border-bt-border tracking-widest">
+                    <div class="md:text-center">
+                        <span class="bg-bt-card text-slate-300 text-[9px] px-3 py-1 rounded uppercase font-black border border-bt-border tracking-widest">
                             ${phone.clase || 'Smartphone'}
                         </span>
                     </div>
 
-                    <div class="price-tag">
-                        <span class="md:hidden text-[8px] text-slate-500 uppercase font-black block mb-1">Inversión Total</span>
+                    <div class="md:text-center">
+                        <span class="md:hidden text-[8px] text-slate-500 uppercase font-black block mb-1">Precio Final</span>
                         <span class="text-white font-black text-2xl md:text-lg tracking-tighter">${formatCurrency(phone.precio)}</span>
                     </div>
 
-                    <div class="initial-tag">
-                        <span class="md:hidden text-[8px] text-orange-500/70 uppercase font-black block mb-1 tracking-widest">Inicial desde</span>
-                        <span class="font-black text-lg md:text-sm italic tracking-tighter">${phone.inicial ? formatCurrency(phone.inicial) : 'Consultar'}</span>
+                    <div class="md:text-center">
+                        <span class="md:hidden text-[8px] text-orange-500 uppercase font-black block mb-1">Inicial desde</span>
+                        <span class="initial-tag text-lg md:text-sm italic uppercase tracking-tighter">${phone.inicial ? formatCurrency(phone.inicial) : 'Consultar'}</span>
                     </div>
 
                     <div class="flex md:justify-end">
-                        <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Me%20interesa:%20${encodeURIComponent(phone.marca + ' ' + phone.modelo)}" 
+                        <a href="https://wa.me/1809XXXXXXX?text=Hola%20Bluetech!%20Me%20interesa%20el%20${encodeURIComponent(phone.modelo)}" 
                            target="_blank"
-                           class="w-full md:w-auto bg-bt-primary text-white py-4 md:py-2.5 px-6 rounded-xl md:rounded-lg text-center text-xs font-black hover:bg-white hover:text-bt-primary transition-all duration-300 flex items-center justify-center gap-2 shadow-xl shadow-bt-primary/10">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span class="md:hidden">Consultar ahora</span>
+                           class="w-full md:w-auto bg-bt-primary text-white py-4 md:py-2 px-6 rounded-xl md:rounded-lg text-center text-xs font-black hover:bg-white hover:text-bt-primary transition-all duration-300">
+                            <i class="fa-brands fa-whatsapp text-lg md:mr-0 mr-2"></i>
+                            <span class="md:hidden">Contactar ahora</span>
                         </a>
                     </div>
                 </div>
@@ -228,6 +210,7 @@
         }
 
         document.getElementById('phone-search').addEventListener('input', applyFilters);
+        document.querySelector('[data-brand="all"]').onclick = function() { filterByBrand('all', this); };
         document.addEventListener('DOMContentLoaded', fetchPhones);
     </script>
 </body>
