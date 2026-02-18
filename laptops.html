@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-DO">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo de Laptops | Bluetech RD</title>
-    <link rel="icon" type="image/png" href="logoblue.png">
+    
+    <title>Catálogo de Laptops | Bluetech RD - Hardware de Alto Rendimiento</title>
+    <meta name="description" content="Encuentra las mejores laptops en República Dominicana. Gaming, Workstations y Apple con garantía local. Envíos rápidos a todo el país.">
+    <meta name="keywords" content="Laptops RD, Laptops Gaming Santo Domingo, MacBook Pro RD, Laptops Baratas, Bluetech Gear">
+    <meta name="author" content="Bluetech Solutions">
+    <link rel="canonical" href="https://bluetech.com.do/laptops.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Catálogo de Laptops | Bluetech RD">
+    <meta property="og:description" content="Equipos de élite seleccionados para profesionales. Garantía real y el mejor servicio técnico de RD.">
+    <meta property="og:image" content="logoblancoblue.png">
+    <meta property="og:url" content="https://bluetech.com.do/laptops.html">
+    <meta property="og:site_name" content="Bluetech">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catálogo de Laptops | Bluetech RD">
+    <meta name="twitter:description" content="Laptops Pro y Gaming con envíos a domicilio.">
+    <meta name="twitter:image" content="logoblancoblue.png">
+
+    <link rel="icon" type="image/png" href="logoblancoblue.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -30,51 +48,65 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800;900&display=swap');
         :root { --font-titles: 'Outfit', sans-serif; --font-body: 'Inter', sans-serif; }
         body { font-family: var(--font-body); background-color: #0A0F1D; color: #F8FAFC; text-align: left; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-title { font-family: var(--font-titles); letter-spacing: -0.04em; }
+        h1, h2, h3 { font-family: var(--font-titles); letter-spacing: -0.04em; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* SIDEBAR MÓVIL */
+        #mobile-sidebar { position: fixed; top: 0; right: -100%; width: 280px; height: 100vh; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; }
+        #mobile-sidebar.active { right: 0; }
+        #sidebar-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.3s; z-index: 1500; }
+        #sidebar-overlay.active { opacity: 1; pointer-events: auto; }
+        body.overflow-hidden { overflow: hidden; }
+
         .product-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .product-card:hover { transform: translateY(-10px); border-color: #2563EB; box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.1); }
         .category-pill { transition: all 0.3s ease; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
         .category-pill.active { background: #2563EB; border-color: #2563EB; color: white; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="antialiased">
 
- <nav class="fixed w-full z-50 px-4 md:px-6 py-3"> <div class="max-w-7xl mx-auto glass rounded-[2.5rem] px-8 py-3 flex justify-between items-center relative"> <a href="index.html" class="flex items-center group transition">
-            <img src="./logoblancoblue.png" alt="Blue Tech Logo" 
-                 class="h-16 md:h-24 w-auto object-contain block transition-transform duration-500 group-hover:scale-105">
-        </a>
+    <div id="sidebar-overlay"></div>
 
-        <div class="hidden lg:flex items-center gap-8 text-[12px] font-black uppercase tracking-[0.2em]">
-            <a href="laptops.html" class="hover:text-bt-primary transition text-white">Laptops</a>
-            <a href="celulares.html" class="hover:text-bt-primary transition text-white">Celulares</a>
-            <a href="accesorios.html" class="hover:text-bt-primary transition text-white">Accesorios</a>
-            <a href="gaming.html" class="hover:text-bt-primary transition text-white">Mundo Gaming</a>
-            <a href="tablets.html" class="hover:text-bt-primary transition text-white text-left">Tablets</a>
-            <a href="https://wa.me/1809XXXXXXX" target="_blank" 
-               class="bg-whatsapp text-white px-6 py-3 rounded-full hover:shadow-lg hover:shadow-whatsapp/20 transition duration-300">
-                <i class="fa-brands fa-whatsapp mr-2 text-lg"></i>WhatsApp
+    <nav class="fixed w-full z-[160] px-4 md:px-6 py-4">
+        <div class="max-w-7xl mx-auto glass rounded-full px-6 py-3 flex justify-between items-center relative">
+            <a href="index.html">
+                <img src="./logoblancoblue.png" alt="Bluetech Logo" class="h-10 md:h-14 w-auto object-contain">
             </a>
+            
+            <div class="hidden lg:flex items-center gap-8 text-[11px] font-black uppercase tracking-widest text-white">
+                <a href="laptops.html" class="text-bt-primary transition">Laptops</a>
+                <a href="celulares.html" class="hover:text-bt-primary transition">Celulares</a>
+                <a href="accesorios.html" class="hover:text-bt-primary transition">Accesorios</a>
+                <a href="gaming.html" class="hover:text-bt-primary transition">Mundo Gaming</a>
+                <a href="tablets.html" class="hover:text-bt-primary transition">Tablets</a>
+                <a href="https://wa.me/1809XXXXXXX" target="_blank" class="bg-whatsapp px-5 py-2.5 rounded-full font-bold">WhatsApp</a>
+            </div>
+
+            <button id="open-sidebar" class="lg:hidden text-white text-3xl p-2 focus:outline-none">
+                <i class="fa-solid fa-bars-staggered"></i>
+            </button>
         </div>
+    </nav>
 
-        <button id="menu-toggle" class="lg:hidden text-white text-4xl p-2">
-            <i class="fa-solid fa-bars-staggered"></i>
-        </button>
+    <div id="mobile-sidebar" class="glass p-10 flex flex-col gap-6 lg:hidden text-left">
+        <div class="flex justify-between items-center mb-10 border-b border-white/5 pb-6">
+            <img src="./logoblancoblue.png" alt="Bluetech Logo" class="h-8 w-auto">
+            <button id="close-sidebar" class="text-white text-3xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="flex flex-col gap-6 text-xl font-black uppercase tracking-tighter text-white">
+            <a href="index.html">Inicio</a>
+            <a href="laptops.html" class="text-bt-primary">Laptops</a>
+            <a href="celulares.html">Celulares</a>
+            <a href="accesorios.html">Accesorios</a>
+            <a href="gaming.html">Mundo Gaming</a>
+            <a href="tablets.html">Tablets</a>
+            <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-center py-4 rounded-2xl mt-6 text-sm">WhatsApp Business</a>
+        </div>
     </div>
 
-    <div id="mobile-menu" class="absolute top-28 left-4 right-4 glass rounded-[2.5rem] p-10 flex flex-col gap-8 lg:hidden shadow-2xl">
-        <a href="laptops.html" class="text-2xl font-black uppercase tracking-tighter text-white">Laptops</a>
-        <a href="celulares.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Celulares</a>
-        <a href="accesorios.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Accesorios</a>
-        <a href="gaming.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Mundo Gaming</a>
-        <a href="tablets.html" class="text-2xl font-black uppercase tracking-tighter border-t border-white/5 pt-6 text-left text-white">Tablets</a>
-        <a href="https://wa.me/1809XXXXXXX" class="bg-whatsapp text-white text-center py-6 rounded-3xl font-black uppercase tracking-widest mt-4">
-            <i class="fa-brands fa-whatsapp mr-2"></i>WhatsApp
-        </a>
-    </div>
-</nav>
-
-    <main class="max-w-7xl mx-auto px-6 pt-40 pb-20">
+    <main class="max-w-7xl mx-auto px-6 pt-36 md:pt-40 pb-20">
         <div class="mb-12">
             <div class="max-w-xl mb-8">
                 <h1 class="text-4xl md:text-5xl font-black mb-4">Catálogo de <span class="text-bt-primary italic">Laptops.</span></h1>
@@ -85,11 +117,11 @@
                 </div>
             </div>
 
-            <div id="brand-filters" class="flex flex-wrap gap-3 mb-8 overflow-x-auto pb-2">
+            <div id="brand-filters" class="flex flex-wrap gap-3 mb-8 overflow-x-auto pb-2 no-scrollbar">
                 <button class="category-pill active bg-white/5 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest" data-brand="all">Todas</button>
-                </div>
+            </div>
 
-            <div id="results-count" class="text-slate-500 text-[10px] font-black uppercase tracking-widest pb-4 text-left">Sincronizando inventario...</div>
+            <div id="results-count" class="text-slate-500 text-[10px] font-black uppercase tracking-widest pb-4 text-left font-title">Sincronizando inventario...</div>
         </div>
 
         <div id="laptop-loader" class="text-center py-20">
@@ -104,6 +136,22 @@
         let allLaptops = [];
         let currentBrand = 'all';
 
+        // LÓGICA SIDEBAR
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+        const sidebar = document.getElementById('mobile-sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.classList.toggle('overflow-hidden');
+        }
+
+        openBtn.addEventListener('click', toggleSidebar);
+        closeBtn.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+
         const formatCurrency = (amount) => {
             return new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP', minimumFractionDigits: 0 }).format(amount).replace('DOP', 'RD$');
         };
@@ -112,10 +160,8 @@
             try {
                 const response = await fetch(GAS_WEB_APP_URL + '?sheet=Laptops', { method: 'GET', redirect: 'follow' });
                 allLaptops = await response.json();
-                
                 generateBrandFilters(allLaptops);
                 renderLaptops(allLaptops);
-                
                 document.getElementById('laptop-loader').classList.add('hidden');
                 document.getElementById('laptop-container').classList.remove('hidden');
             } catch (error) { 
@@ -124,11 +170,9 @@
             }
         }
 
-        // Generar botones de marcas basados en los datos reales
         function generateBrandFilters(data) {
             const filterContainer = document.getElementById('brand-filters');
             const brands = [...new Set(data.map(item => item.marca).filter(Boolean))];
-            
             brands.forEach(brand => {
                 const button = document.createElement('button');
                 button.className = 'category-pill bg-white/5 px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest';
@@ -168,7 +212,6 @@
             countDisplay.innerText = `${data.length} Equipos encontrados`;
 
             container.innerHTML = data.map(laptop => {
-                // Lógica de Stock Llamativo (Naranja si < 3)
                 const stock = parseInt(laptop.cantidad) || 0;
                 const isLowStock = stock < 3;
                 const stockClass = isLowStock ? 'text-orange-500 animate-pulse font-black' : 'text-slate-500 font-bold';
